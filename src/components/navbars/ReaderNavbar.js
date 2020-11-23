@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../assets/logo/logo.svg';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 function LandingNavbar() {
   return (
@@ -12,8 +13,8 @@ function LandingNavbar() {
             </div>
             <div className="navLinks">
                 <ul>
-                    <li>FAQs</li>
-                    <li>Write</li>
+                    <li><Link to="faq" className="reactLink">FAQs</Link></li>
+                    <li><Link to="write" className="reactLink">Write</Link></li>
                 </ul>
                 <span>|</span>
                 <div>
