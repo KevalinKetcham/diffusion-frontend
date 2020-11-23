@@ -1,0 +1,31 @@
+.container1 {
+    margin: 120px 0 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container1 button {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    width: 120px;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #F79824;
+    border: 2px solid #F79824;
+}
+
+.container1 .educationIllustration {
+    width: 400px;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+}
+
+.container2 div {
+    width: 40%;
+    text-align: center;
+}

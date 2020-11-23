@@ -1,4 +1,4 @@
-import LandingNavbar from './components/navbars/LandingNavbar';
+import Landing from './pages/landing/Landing';
 import FAQNavbar from './components/navbars/FAQNavbar';
 import AuthorNavbar from './components/navbars/AuthorNavbar';
 import ReaderNavbar from './components/navbars/ReaderNavbar';
@@ -16,7 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <LandingNavbar></LandingNavbar>
+            <Landing></Landing>
           </Route>
           <Route path="/faq" exact>
             <FAQNavbar></FAQNavbar>
