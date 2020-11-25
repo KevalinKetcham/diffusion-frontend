@@ -7,6 +7,10 @@ import shareIllustration from '../../assets/illustrations/shareIllustrationYello
 import monetizationIllustration from '../../assets/illustrations/monetizationIllustrationOrange.svg';
 import supportIllustration from '../../assets/illustrations/supportIllustrationBlue.svg';
 
+// Background Elements
+import blueBkg from '../../assets/background elements/landingBlue.svg';
+import orangeBkg from '../../assets/background elements/landingOrange.svg';
+
 import './Landing.css';
 
 function Landing() {
@@ -30,17 +34,17 @@ function Landing() {
         <div className="container3">
           <div className="features">
             <div>
-              <img src={shareIllustration}></img>
+              <img src={shareIllustration} alt="share illustration"></img>
               <h4>Distribution</h4>
               <p>Simply post your book to Diffusion & we automatically distribute your book to readers on Diffusion.</p>
             </div>
             <div>
-              <img src={monetizationIllustration}></img>
+              <img src={monetizationIllustration} alt="monetization illustration"></img>
               <h4>Monetization</h4>
               <p>You don’t have to create a payment portal or sell in some store. Ads are automatically embedded so you get paid as people enjoy your book.</p>
             </div>
             <div>
-              <img src={supportIllustration}></img>
+              <img src={supportIllustration} alt="support illustration"></img>
               <h4>Support</h4>
               <p>Get help from a community of authors. You’ll be more motivated and produce better work.</p>
             </div>

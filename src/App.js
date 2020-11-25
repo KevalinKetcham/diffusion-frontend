@@ -1,7 +1,7 @@
 import Landing from './pages/landing/Landing';
-import FAQNavbar from './components/navbars/FAQNavbar';
-import AuthorNavbar from './components/navbars/AuthorNavbar';
-import ReaderNavbar from './components/navbars/ReaderNavbar';
+import FAQ from './pages/faq/FAQ';
+import Write from './pages/write/Write';
+import Read from './pages/read/Read';
 
 import './App.css';
 import {
@@ -12,6 +12,7 @@ import {
 
 function App() {
   return (
+    <>
     <div style={{ margin: '0 10% 0 10%' }}>
       <Router>
         <Switch>
@@ -19,13 +20,13 @@ function App() {
             <Landing></Landing>
           </Route>
           <Route path="/faq" exact>
-            <FAQNavbar></FAQNavbar>
+            <FAQ></FAQ>
           </Route>
           <Route path="/write" exact>
-            <AuthorNavbar></AuthorNavbar>
+            <Write></Write>
           </Route>
           <Route path="/read" exact>
-            <ReaderNavbar></ReaderNavbar>
+            <Read></Read>
           </Route>
           <Route>
             <div style={{ textAlign: "center", marginTop: "25%" }}>
@@ -36,6 +37,7 @@ function App() {
         </Switch>
       </Router>
     </div>
+    </>
   );
 }
 

@@ -1,11 +1,24 @@
+p {
+    font-size: 14px;
+    line-height: 150%;
+}
+
 .container1 {
     margin: 120px 0 0 0;
     display: flex;
     justify-content: space-around;
 }
 
+.container1 div {
+    width: 40%;
+}
+
+.container1 h1 {
+    font-weight: 600;
+}
+
 .container1 button {
-    margin: 0;
+    margin: 50px 0 0 0;
     font-size: 16px;
     font-weight: 600;
     height: 50px;
@@ -21,6 +34,7 @@
 }
 
 .container2 {
+    margin: 120px 0 0 0;
     display: flex;
     justify-content: center;
 }
@@ -30,12 +44,31 @@
     text-align: center;
 }
 
+.container2 h2 {
+    font-weight: 500;
+}
+
+.container3 {
+    margin: 120px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+
 .container3 .features {
     width: 60%;
     display: flex;
     justify-content: space-evenly;
 }
 
+.features div {
+    margin: 0 2%;
+}
+
 .features img {
     height: 120px;
+}
+
+.features h4 {
+    font-size: 18px;
+    font-weight: 500;
 }

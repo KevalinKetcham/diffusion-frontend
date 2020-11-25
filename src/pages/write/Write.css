@@ -1,0 +1,21 @@
+.container1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container1 button {
+    margin: 50px 0 0 0;
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    width: 120px;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #F79824;
+    border: 2px solid #F79824;
+}
+
+.container1 img {
+    height: 300px;
+}
