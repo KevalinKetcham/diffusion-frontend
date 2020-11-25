@@ -29,3 +29,13 @@
     width: 40%;
     text-align: center;
 }
+
+.container3 .features {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.features img {
+    height: 120px;
+}

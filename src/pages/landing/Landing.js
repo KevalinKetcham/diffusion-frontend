@@ -1,6 +1,12 @@
 import React from 'react';
 import LandingNavbar from '../../components/navbars/LandingNavbar';
+
+// Illustrations
 import educationIllustration from '../../assets/illustrations/educationIllustrationOrange.svg';
+import shareIllustration from '../../assets/illustrations/shareIllustrationYellow.svg';
+import monetizationIllustration from '../../assets/illustrations/monetizationIllustrationOrange.svg';
+import supportIllustration from '../../assets/illustrations/supportIllustrationBlue.svg';
+
 import './Landing.css';
 
 function Landing() {
@@ -22,7 +28,23 @@ function Landing() {
           </div>
         </div>
         <div className="container3">
-          Feature #1 | Feature #2 | Feature #3
+          <div className="features">
+            <div>
+              <img src={shareIllustration}></img>
+              <h4>Distribution</h4>
+              <p>Simply post your book to Diffusion & we automatically distribute your book to readers on Diffusion.</p>
+            </div>
+            <div>
+              <img src={monetizationIllustration}></img>
+              <h4>Monetization</h4>
+              <p>You don’t have to create a payment portal or sell in some store. Ads are automatically embedded so you get paid as people enjoy your book.</p>
+            </div>
+            <div>
+              <img src={supportIllustration}></img>
+              <h4>Support</h4>
+              <p>Get help from a community of authors. You’ll be more motivated and produce better work.</p>
+            </div>
+          </div>
         </div>
     </>
   );
