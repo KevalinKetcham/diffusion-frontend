@@ -1,6 +1,9 @@
 import React from 'react';
 import ReaderNavbar from '../../components/navbars/ReaderNavbar';
 
+// Share btns
+import ShareBtns from '../../components/share btns/ShareBtns';
+
 // Illustration
 import questionIllustration from '../../assets/illustrations/questionMarkIllustrationOrange.svg';
 
@@ -24,6 +27,7 @@ function FAQ() {
             </div>
             <img src={questionIllustration} alt="question illustration"></img>
         </div>
+        <ShareBtns></ShareBtns>
     </>
   );
 }

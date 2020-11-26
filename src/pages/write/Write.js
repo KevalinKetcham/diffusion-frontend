@@ -1,6 +1,9 @@
 import React from 'react';
 import AuthorNavbar from '../../components/navbars/AuthorNavbar';
 
+// Share btns
+import ShareBtns from '../../components/share btns/ShareBtns';
+
 // Illustration
 import uploadIllustration from '../../assets/illustrations/uploadIllustrationYellow.svg';
 
@@ -22,6 +25,7 @@ function Write() {
             </div>
             <img src={uploadIllustration} alt="question illustration"></img>
         </div>
+        <ShareBtns></ShareBtns>
         <HelpBtn></HelpBtn>
     </>
   );

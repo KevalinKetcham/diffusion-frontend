@@ -1,6 +1,9 @@
 import React from 'react';
 import LandingNavbar from '../../components/navbars/LandingNavbar';
 
+// Share btns
+import ShareBtns from '../../components/share btns/ShareBtns';
+
 // Illustrations
 import educationIllustration from '../../assets/illustrations/educationIllustrationOrange.svg';
 import shareIllustration from '../../assets/illustrations/shareIllustrationYellow.svg';
@@ -50,6 +53,7 @@ function Landing() {
             </div>
           </div>
         </div>
+        <ShareBtns></ShareBtns>
     </>
   );
 }

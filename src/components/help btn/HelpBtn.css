@@ -1,0 +1,52 @@
+.qBtn {
+    width: 80px;
+    height: 80px;
+    bottom: 30px;
+    right: 10%;
+    box-shadow: 0 4px #a6a6a62e;
+    font-size: 60px;
+    color: #ffffff;
+    background-color: #2176FF;
+    border-radius: 50px;
+    border: none;
+    position: absolute;
+}
+
+.clickedQBtn {
+    width: 330px;
+    height: 80px;
+    bottom: 30px;
+    right: 10%;
+    background-color: #E5F3FF;
+    display: flex;
+    position: absolute;
+}
+
+.clickedQBtn button {
+    top: -20px;
+    left: -20px;
+    box-shadow: 0 6px #a6a6a62e;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #2176FF;
+    border-radius: 50px;
+    border: none;
+    position: relative;
+    display: block;
+}
+
+.clickedQBtn button img {
+    width: 20px;
+    height: 20px;
+    top: 3px;
+    background: none;
+    position: relative;
+}
+
+.clickedQBtn p, b {
+    margin: 0;
+    padding: 0;
+    align-self: center;
+    background: none;
+
+}

@@ -1,0 +1,46 @@
+.socialIcons {
+    left: 0;
+    bottom: 35%;
+    position: fixed;
+}
+
+.socialIcons a {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#twitter {
+    background: #31393C;
+}
+
+#gmail {
+    background: #2176FF;
+}
+
+#facebook {
+    background: #33A1FD;
+}
+
+#reddit {
+    background: #F79824;
+}
+
+.socialIcons a img {
+    width: 30px;
+    height: 30px;
+    background: none;
+}
+
+@media(max-width: 800px) {
+    .socialIcons {
+        width: 100%;
+        bottom: 0;
+        display: flex;
+    }
+    .socialIcons a {
+        width: 25%;
+    }
+}
