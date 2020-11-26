@@ -1,5 +1,5 @@
 import React from 'react';
-import ReaderNavbar from '../../components/navbars/ReaderNavbar';
+import AuthorNavbar from '../../components/navbars/AuthorNavbar';
 
 // Illustration
 import uploadIllustration from '../../assets/illustrations/uploadIllustrationYellow.svg';
@@ -12,7 +12,7 @@ import './Write.css';
 function Write() {
   return (
     <>
-        <ReaderNavbar></ReaderNavbar>
+        <AuthorNavbar></AuthorNavbar>
         <div className="container1">
             <div>
                 <h1>Simply start by uploading a book</h1>
