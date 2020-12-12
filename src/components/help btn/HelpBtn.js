@@ -3,18 +3,42 @@ import './HelpBtn.css';
 
 import exit from '../../assets/icons/exit.svg';
 
-function HelpBtn() {
-  return (
-    <>
-        <button className="qBtn">?</button>
-        <div className="clickedQBtn">
-            <button>
+class HelpBtn extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      qBtn: true,
+      clickedQBtn: false
+    }
+  }
+
+  toggleComponent() {
+    this.setState({ qBtn: this.state.clickedQBtn })
+    this.setState({ clickedQBtn: this.state.qBtn })
+  }
+
+  render() {
+    let { qBtn, clickedQBtn } = this.state;
+    return (
+      <>
+        {
+          qBtn
+          &&
+          <button className="qBtn" onClick={()=>this.toggleComponent()}>?</button>
+        }
+        {
+          clickedQBtn
+          &&
+          <div className="clickedQBtn">
+            <button onClick={()=>this.toggleComponent()}>
                 <img src={exit} alt="exit icon"></img>
             </button>
             <p>For any help feel free to reach out to <b>hello@diffusionapp.com</b></p>
-        </div>
-    </>
-  );
+          </div>
+        }
+      </>
+    );
+  }
 }
 
 export default HelpBtn;

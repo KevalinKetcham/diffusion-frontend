@@ -72,3 +72,13 @@ p {
     font-size: 18px;
     font-weight: 500;
 }
+
+#blue1Landing {
+    top: 100%;
+    z-index: -1;
+}
+
+#yellow2Landing {
+    top: 200%;
+    z-index: -2;
+}

@@ -77,7 +77,10 @@ nav span {
 
 
 /* Author navbar */
-
+.navLinks a {
+    color: #000000;
+    text-decoration: none;
+}
 
 /* Reader navbar */
 

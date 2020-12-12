@@ -14,7 +14,7 @@ function LandingNavbar() {
             </div>
             <div className="navLinks">
                 <ul>
-                    <li>Discord Server</li>
+                    <li><a href="https://www.discord.com" target="_blank" rel="noreferrer">Discord Server</a></li>
                     <li><Link to="faq" className="reactLink">FAQs</Link></li>
                     <li><Link to="read" className="reactLink">Read</Link></li>
                 </ul>

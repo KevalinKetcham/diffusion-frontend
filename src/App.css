@@ -2,3 +2,9 @@
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
 }
+
+.background {
+  width: 110%;
+  left: -10%;
+  position: absolute;
+}
