@@ -7,6 +7,9 @@ import ShareBtns from '../../components/share btns/ShareBtns';
 // Illustration
 import questionIllustration from '../../assets/illustrations/questionMarkIllustrationOrange.svg';
 
+// Help Btn
+import HelpBtn from '../../components/help btn/HelpBtn';
+
 import './FAQ.css';
 
 function FAQ() {
@@ -28,6 +31,7 @@ function FAQ() {
             <img src={questionIllustration} alt="question illustration"></img>
         </div>
         <ShareBtns></ShareBtns>
+        <HelpBtn></HelpBtn>
     </>
   );
 }

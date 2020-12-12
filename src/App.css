@@ -3,6 +3,11 @@
   background-color: #ffffff;
 }
 
+.screen {
+  display: flex;
+  justify-content: center;
+}
+
 .background {
   width: 110%;
   left: -10%;

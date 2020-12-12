@@ -10,6 +10,7 @@
     border-radius: 50px;
     border: none;
     position: absolute;
+    outline: none;
 }
 
 .clickedQBtn {
@@ -33,6 +34,7 @@
     border: none;
     position: relative;
     display: block;
+    outline: none;
 }
 
 .clickedQBtn button img {

@@ -1,4 +1,6 @@
 import Landing from './pages/landing/Landing';
+import Signup from './pages/auth/Signup';
+import Signin from './pages/auth/Signin';
 import FAQ from './pages/faq/FAQ';
 import Write from './pages/write/Write';
 import Read from './pages/read/Read';
@@ -18,6 +20,12 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Landing></Landing>
+          </Route>
+          <Route path="/signup" exact>
+            <Signup></Signup>
+          </Route>
+          <Route path="/signin" exact>
+            <Signin></Signin>
           </Route>
           <Route path="/faq" exact>
             <FAQ></FAQ>

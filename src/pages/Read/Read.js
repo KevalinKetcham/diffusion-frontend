@@ -7,6 +7,9 @@ import ShareBtns from '../../components/share btns/ShareBtns';
 // Illustration
 import waitingIllustration from '../../assets/illustrations/waitingIllustrationOrange.svg';
 
+// Help Btn
+import HelpBtn from '../../components/help btn/HelpBtn';
+
 import './Read.css';
 
 function Read() {
@@ -21,6 +24,7 @@ function Read() {
             <img src={waitingIllustration} alt="waiting illustration"></img>
         </div>
         <ShareBtns></ShareBtns>
+        <HelpBtn></HelpBtn>
     </>
   );
 }

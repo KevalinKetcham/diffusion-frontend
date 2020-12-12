@@ -1,4 +1,6 @@
 Background elements
 Upload book process (animate loading)
-Sign in/Sign up
 Mobile responsiveness
+
+
+If signed in show landing page with navigation to /faq, /write, and /read
