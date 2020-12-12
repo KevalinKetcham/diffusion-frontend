@@ -4,3 +4,5 @@ Mobile responsiveness
 
 Build upload form (frontend & backend simultaneously)
 If signed in show landing page with navigation to /faq, /write, and /read
+
+Test for bugs

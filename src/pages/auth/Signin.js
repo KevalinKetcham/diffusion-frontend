@@ -4,8 +4,6 @@ import {
   Link
 } from "react-router-dom";
 
-import Formatting from '../../components/Formatting';
-
 // CSS
 import './Auth.css'
 
@@ -26,7 +24,6 @@ function Signin() {
           <Link to="/signup"><p className="auth__p">Don't have an account? Sign up here!</p></Link>
       </div>
     </div>
-    <Formatting></Formatting>
     </>
   );
 }
