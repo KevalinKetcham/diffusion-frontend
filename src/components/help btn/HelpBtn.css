@@ -52,3 +52,12 @@
     background: none;
 
 }
+
+@media(max-width: 800px) {
+    .qBtn {
+        bottom: 80px;
+    }
+    .clickedQBtn {
+        bottom: 80px;
+    }
+}
