@@ -12,6 +12,10 @@ import HelpBtn from '../../components/help btn/HelpBtn';
 
 import Background from '../../components/background/Background';
 
+// Upload process
+import UploadModal from '../../components/upload modal/UploadModal';
+import Formatting from '../../components/Formatting';
+
 import './Write.css';
 
 function Write() {
@@ -27,6 +31,10 @@ function Write() {
             </div>
             <img src={uploadIllustration} alt="question illustration"></img>
         </div>
+
+        <UploadModal></UploadModal>
+        <Formatting></Formatting>
+
         <ShareBtns></ShareBtns>
         <HelpBtn></HelpBtn>
         <Background></Background>
