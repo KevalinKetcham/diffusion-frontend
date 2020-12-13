@@ -13,8 +13,17 @@ class HelpBtn extends React.Component {
   }
 
   toggleComponent() {
-    this.setState({ qBtn: this.state.clickedQBtn })
-    this.setState({ clickedQBtn: this.state.qBtn })
+    this.setState({ qBtn: this.state.clickedQBtn });
+    this.setState({ clickedQBtn: this.state.qBtn });
+  };
+
+  clickaway() {
+    if(this.state.clickedQBtn === true) {
+      this.setState({ qBtn: this.state.clickedQBtn });
+      this.setState({ clickedQBtn: this.state.qBtn });
+    } else {
+      console.log("Hello!");
+    }
   }
 
   render() {
@@ -36,6 +45,7 @@ class HelpBtn extends React.Component {
             <p>For any help feel free to reach out to <b>hello@diffusionapp.com</b></p>
           </div>
         }
+        <div className="clickaway" onClick={()=>this.clickaway()}></div>
       </>
     );
   }
