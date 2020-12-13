@@ -10,6 +10,8 @@ import waitingIllustration from '../../assets/illustrations/waitingIllustrationO
 // Help Btn
 import HelpBtn from '../../components/help btn/HelpBtn';
 
+import Background from '../../components/background/Background';
+
 import './Read.css';
 
 function Read() {
@@ -25,6 +27,7 @@ function Read() {
         </div>
         <ShareBtns></ShareBtns>
         <HelpBtn></HelpBtn>
+        <Background></Background>
     </>
   );
 }

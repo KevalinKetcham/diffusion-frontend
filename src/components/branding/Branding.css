@@ -1,0 +1,19 @@
+.link--branding {
+    color: #000000;
+    text-decoration: none;
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+}
+
+.branding img {
+    margin: 0 20px 0 0;
+    width: 40px;
+}
+
+.branding p {
+    margin: 0;
+    font-size: 30px;
+}

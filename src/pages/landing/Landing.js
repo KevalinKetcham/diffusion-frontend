@@ -17,9 +17,7 @@ import shareIllustration from '../../assets/illustrations/shareIllustrationYello
 import monetizationIllustration from '../../assets/illustrations/monetizationIllustrationOrange.svg';
 import supportIllustration from '../../assets/illustrations/supportIllustrationBlue.svg';
 
-// Background Elements
-import blue1 from '../../assets/background elements/blue1.svg';
-import yellow2 from '../../assets/background elements/yellow2.svg';
+import Background from '../../components/background/Background';
 
 import './Landing.css';
 
@@ -60,10 +58,9 @@ function Landing() {
             </div>
           </div>
         </div>
-        <img id="blue1Landing" className="background" src={blue1}></img>
-        <img id="yellow2Landing" className="background" src={yellow2}></img>
         <ShareBtns></ShareBtns>
         <HelpBtn></HelpBtn>
+        <Background></Background>
     </>
   );
 }

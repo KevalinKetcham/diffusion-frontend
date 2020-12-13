@@ -10,6 +10,8 @@ import uploadIllustration from '../../assets/illustrations/uploadIllustrationYel
 // Help Btn
 import HelpBtn from '../../components/help btn/HelpBtn';
 
+import Background from '../../components/background/Background';
+
 import './Write.css';
 
 function Write() {
@@ -27,6 +29,7 @@ function Write() {
         </div>
         <ShareBtns></ShareBtns>
         <HelpBtn></HelpBtn>
+        <Background></Background>
     </>
   );
 }

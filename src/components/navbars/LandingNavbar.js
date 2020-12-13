@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/logo/logo.svg';
+import Branding from '../branding/Branding';
 import './Navbar.css';
 
 import {
@@ -10,13 +10,10 @@ function LandingNavbar() {
   return (
     <>
         <nav>
-            <div className="branding">
-                <img src={Logo} alt="logo"></img>
-                <p>Diffusion</p>
-            </div>
+            <Branding></Branding>
             <div>
-                <Link to="/signup"><button className="navbarBtn" id="signupBtn">Sign Up</button></Link>
                 <Link to="/signin"><button className="navbarBtn" id="signinBtn">Sign In</button></Link>
+                <Link to="/signup"><button className="navbarBtn" id="signupBtn">Sign Up</button></Link>
             </div>
         </nav>
     </>

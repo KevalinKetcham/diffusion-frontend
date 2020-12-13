@@ -9,7 +9,7 @@
     background-color: #2176FF;
     border-radius: 50px;
     border: none;
-    position: absolute;
+    position: fixed;
     outline: none;
 }
 
@@ -20,7 +20,7 @@
     right: 10%;
     background-color: #E5F3FF;
     display: flex;
-    position: absolute;
+    position: fixed;
 }
 
 .clickedQBtn button {

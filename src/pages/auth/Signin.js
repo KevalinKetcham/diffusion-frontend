@@ -16,10 +16,10 @@ function Signin() {
           <h1>Sign In</h1>
           <form className="auth__form">
               <label className="form__label" for="email">Email</label>
-              <input className="form__input" id="email" placeholder="john.smith@example.com" type="email"></input>
+              <input className="form__input" id="email" placeholder="john.smith@example.com" type="email" autocomplete="off"></input>
               <label className="form__label" for="password">Password</label>
-              <input className="form__input" id="password" placeholder="8+ characters" type="text"></input>
-              <button className="authBtn" id="signinBtn">Sign In</button>
+              <input className="form__input" id="password" placeholder="8+ characters" type="text" autocomplete="off"></input>
+              <button className="authBtn">Sign In</button>
           </form>
           <Link to="/signup"><p className="auth__p">Don't have an account? Sign up here!</p></Link>
       </div>

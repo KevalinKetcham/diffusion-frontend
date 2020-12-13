@@ -1,0 +1,16 @@
+.background--element {
+    position: fixed;
+    z-index: -1;
+}
+
+#blue1 {
+    width: 110%;
+    left: -10%;
+    bottom: 0;
+}
+
+#yellow1 {
+    width: 110%;
+    left: -10%;
+    bottom: 0;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../assets/logo/logo.svg';
+import Branding from '../branding/Branding';
 import './Navbar.css';
 
 import { Link } from 'react-router-dom';
@@ -8,10 +8,7 @@ function LandingNavbar() {
   return (
     <>
         <nav>
-            <div className="branding">
-                <img src={Logo} alt="logo"></img>
-                <p>Diffusion</p>
-            </div>
+            <Branding></Branding>
             <div className="navLinks">
                 <ul>
                     <li><a href="https://www.discord.com" target="_blank" rel="noreferrer">Discord Server</a></li>

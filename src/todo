@@ -1,8 +1,9 @@
-Background elements
 Mobile responsiveness
+Book upload form
 
-
-Build upload form (frontend & backend simultaneously)
-If signed in show landing page with navigation to /faq, /write, and /read
-
+Backend
+    Book upload
+    Auth
+        If signed in show landing page with navigation to /faq, /write, and /read
+Tweeks
 Test for bugs
