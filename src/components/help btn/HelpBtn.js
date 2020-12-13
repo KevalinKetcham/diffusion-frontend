@@ -17,15 +17,6 @@ class HelpBtn extends React.Component {
     this.setState({ clickedQBtn: this.state.qBtn });
   };
 
-  clickaway() {
-    if(this.state.clickedQBtn === true) {
-      this.setState({ qBtn: this.state.clickedQBtn });
-      this.setState({ clickedQBtn: this.state.qBtn });
-    } else {
-      console.log("Hello!");
-    }
-  }
-
   render() {
     let { qBtn, clickedQBtn } = this.state;
     return (
@@ -38,14 +29,16 @@ class HelpBtn extends React.Component {
         {
           clickedQBtn
           &&
+          <>
           <div className="clickedQBtn">
             <button onClick={()=>this.toggleComponent()}>
                 <img src={exit} alt="exit icon"></img>
             </button>
             <p>For any help feel free to reach out to <b>hello@diffusionapp.com</b></p>
           </div>
+          <div className="clickaway" onClick={()=>this.toggleComponent()}></div>
+          </>
         }
-        <div className="clickaway" onClick={()=>this.clickaway()}></div>
       </>
     );
   }
