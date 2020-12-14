@@ -1,0 +1,33 @@
+.modal__content {
+    margin: 25px 0 0 20%;
+    width: 60%;
+}
+
+.modal__p {
+    font-size: 16px;
+    color: #202020;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.upload__form {
+    margin: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#upload {
+    margin: 0 0 20px 0;
+}
+
+.publishBtn {
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    width: 120px;
+    margin: 20px 0 0 0;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #F79824;
+    border: 2px solid #F79824;
+}

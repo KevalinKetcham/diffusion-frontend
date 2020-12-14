@@ -3,28 +3,33 @@ import React from 'react';
 // CSS
 import './UploadModal.css'
 
-function UploadModal() {
-  return (
-    <>
-    hello
-    {/* <div className="screen">
-      <div className="auth">
-        <Link id="p--back" to="/"><p className="auth__p">back</p></Link>
-        <h1>Sign Up</h1>
-        <form className="auth__form">
-            <label className="form__label" for="username">Username</label>
-            <input className="form__input" id="username" placeholder="speedygoose214" type="text" autocomplete="off"></input>
-            <label className="form__label" for="email">Email</label>
-            <input className="form__input" id="email" placeholder="john.smith@example.com" type="text" autocomplete="off"></input>
-            <label className="form__label" for="password">Password</label>
-            <input className="form__input" id="password" placeholder="8+ characters" type="text" autocomplete="off"></input>
-            <button className="authBtn">Sign Up</button>
-        </form>
-        <Link to="/signin"><p className="auth__p">Already have an account? Sign in here!</p></Link>
+class UploadModal extends React.Component {
+  render() {
+    return (
+      <>
+      <div className="modal">
+        <div className="modal__content">
+          <p className="modal__p" onClick={this.props.defaultContent}>back</p>
+          <h1>Upload</h1>
+          <form className="upload__form">
+            <label id="upload" className="label--file" for="file">Add file</label>
+            <input className="form__file" id="file" type="file"></input>
+            <label className="form__label" for="title">Title</label>
+            <input className="form__text" id="title" placeholder="Harry Potter and the Sorcerer's Stone" type="text" autocomplete="off"></input>
+            <label className="form__label" for="desc">Description</label>
+            <textarea className="form__textarea" placeholder="Describe the piece here..."></textarea>
+            <label className="form__label" for="tags">Tags</label>
+            <input className="form__text" id="tags" placeholder="Fantasy, Adventure, Narrative" type="text" autocomplete="off"></input>
+            <label className="form__label" for="pname">Pen name</label>
+            <input className="form__text" id="pname" placeholder="J.K. Rowling" type="text" autocomplete="off"></input>
+            <button className="publishBtn" onClick={this.props.formatting}>Submit</button>
+            <p className="modal__p">Takes a few hours to process. We'll email you when your piece is ready to publish!</p>
+          </form>
+        </div>
       </div>
-    </div> */}
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default UploadModal;
