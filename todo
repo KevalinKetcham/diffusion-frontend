@@ -1,21 +1,26 @@
-Mobile responsiveness
-    Navbar
-Add shadow CSS
 Auth
     If signed in show landing page with navigation to /faq, /write, and /read
 
 Backend
     Book upload
-    
-Tweeks
-Test for bugs
-Spell check
+
+Navbar
+    Sign out
+    Username display
+    Mobile responsiveness
+
+Add different header for every page
+
+Add shadow CSS
 
 
 Email when new user signs upload
+
 Create social media accounts
     Twitter: @trydiffusion
 
 Figure out and explain copyright policy
+Terms and conditions
 
-Check everything
+Check text
+Test for bugs
