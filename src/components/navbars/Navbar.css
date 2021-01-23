@@ -59,6 +59,16 @@ nav span {
     border: 2px solid #F79824;
 }
 
+@media(max-width:800px){
+    .navbarBtn {
+        width: 80px;
+        height: 40px;
+    }
+    #signinBtn {
+        margin: 0 10px 0 0;
+    }
+}
+
 /* FAQ navbar */
 
 

@@ -7,3 +7,9 @@
 .container1 img {
     height: 300px;
 }
+
+@media(max-width:800px){
+    .container1 img {
+        display: none;
+    }
+}

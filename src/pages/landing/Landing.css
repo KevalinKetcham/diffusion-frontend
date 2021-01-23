@@ -33,6 +33,16 @@ p {
     width: 400px;
 }
 
+@media(max-width:800px) {
+    .container1 div {
+        width: 80%;
+    }
+    .educationIllustration {
+        display: none
+    }
+}
+
+
 .container2 {
     margin: 120px 0 0 0;
     display: flex;
@@ -46,6 +56,12 @@ p {
 
 .container2 h2 {
     font-weight: 500;
+}
+
+@media(max-width:800px) {
+    .container2 div {
+        width: 80%;
+    }
 }
 
 .container3 {
@@ -74,6 +90,15 @@ p {
     font-weight: 500;
 }
 
+@media(max-width:800px) {
+    .features {
+        flex-direction: column;
+    }
+    .features div {
+        margin: 20px 0;
+    }
+}
+
 #blue1Landing {
     top: 100%;
     z-index: -1;
@@ -83,3 +108,4 @@ p {
     top: 200%;
     z-index: -2;
 }
+

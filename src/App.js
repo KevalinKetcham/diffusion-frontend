@@ -39,7 +39,7 @@ function App() {
           <Route>
             <div style={{ textAlign: "center", marginTop: "25%" }}>
               <h1>Error 404</h1>
-              <p>Page not found :(</p>
+              <p>Page not found --> <a href="/">home</a></p>
             </div>
           </Route>
         </Switch>
