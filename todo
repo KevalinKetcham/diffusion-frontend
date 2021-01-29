@@ -1,7 +1,6 @@
 Auth
     Signin & signup
-        Hash and salt password
-    If signed  in show landing page with navigation to /faq, /write, and /read
+    If signed in show landing page with navigation to /faq, /write, and /read
 
 Backend
     Book upload

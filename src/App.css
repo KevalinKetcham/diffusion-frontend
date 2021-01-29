@@ -42,13 +42,13 @@
 .form__label {
   margin: 0 0 5px 0;
   color: #202020;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .form__text {
   font-size: 14px;
   font-weight: 400;
-  height: 50px;
+  height: 30px;
   margin: 5px 0 25px 0;
   padding: 3px 10px;
   border-radius: 8px;
@@ -105,4 +105,24 @@
   width: 110%;
   left: -10%;
   position: absolute;
+}
+
+button {
+  outline: none;
+}
+
+/* Form handling */
+
+.displayErrors input:invalid {
+  border-color: #ff0000;
+}
+
+/* Spin */
+.spin {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
 }

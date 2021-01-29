@@ -45,6 +45,10 @@ app.get('/signout', (req, res)=>{
   res.json({ status: 'signed out' })
 })
 
+app.get('/', (req, res) => {
+  res.send('/ route')
+})
+
 app.listen(port, () => {
   console.log(`Lstening at http://localhost:${port}`)
 })
