@@ -21,21 +21,21 @@ nav li {
     margin: 0 30px 0 0;
 }
 
-nav span {
-    margin: 0 30px 0 0;
-    font-size: 24px;
-    color: #F79824;
-}
-
-.navUsername {
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .reactLink {
     color: black;
     text-decoration: none;
 }
+
+.discord {
+    animation: color-change 5s infinite;
+    font-weight: 800;
+}
+
+@keyframes color-change {
+    0% { color: #F0B354; }
+    50% { color: #3A57CA; }
+    100% { color: #F0B354; }
+  }
 
 /* Landing navbar */
 .navbarBtn {
@@ -45,6 +45,7 @@ nav span {
     width: 120px;
     margin: 0;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 #signinBtn {

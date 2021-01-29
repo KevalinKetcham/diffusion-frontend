@@ -1,0 +1,41 @@
+nav span {
+    margin: 0 30px 0 0;
+    font-size: 24px;
+    color: #F79824;
+}
+
+.navUsername {
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.signout {
+    width: 100px;
+    height: 40px;
+    color: #ffffff;
+    font-weight: 800;
+    border-radius: 10px;
+    background: #F79824;
+    right: 10%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 100;}
+}
+
+.signout__link {
+    color: #ffffff;
+    cursor: pointer;
+    display: none;
+}
+
+.show .signout__link {
+    display: block;
+}

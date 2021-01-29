@@ -1,26 +1,29 @@
 Auth
-    If signed in show landing page with navigation to /faq, /write, and /read
+    Signin & signup
+        Hash and salt password
+    If signed  in show landing page with navigation to /faq, /write, and /read
 
 Backend
     Book upload
 
+.env server connection
+
 Navbar
-    Sign out
-    Username display
     Mobile responsiveness
+    Username display
 
 Add different header for every page
-
-Add shadow CSS
-
 
 Email when new user signs upload
 
 Create social media accounts
     Twitter: @trydiffusion
+    Discord: Diffusion
 
 Figure out and explain copyright policy
 Terms and conditions
 
 Check text
 Test for bugs
+
+Set up deployment workflows
