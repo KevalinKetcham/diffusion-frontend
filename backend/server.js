@@ -1,4 +1,6 @@
 const express = require('express')
+const cors = require('cors')
+const bodyParser = require('body-parser')
 const session = require('express-session')
 const app = express()
 const port = 3001
@@ -12,6 +14,10 @@ passport.use(UserModel.createStrategy());
 passport.serializeUser(UserModel.serializeUser());
 passport.deserializeUser(UserModel.deserializeUser());
 
+app.use(cors())
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: 'keyboard cat',
@@ -23,10 +29,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.post('/signup', async (req, res)=>{
-  UserModel.register(await new UserModel({ username: "bsdafjbdsfa@gmail.com" }), "password", (err)=>{
+
+  UserModel.register(await new UserModel({ username: req.body.username }), req.body.password, (err)=>{
     if(err) {
       return res.send(`sign up err: ${err}`)
     }
+
+    console.log(`New user signed up: ${req.body.username}`)
 
     passport.authenticate('local')(req, res, ()=>{
       res.send('/')
@@ -35,6 +44,7 @@ app.post('/signup', async (req, res)=>{
 })
 
 app.post('/signin', passport.authenticate('local'), (req, res)=>{
+  console.log(req.body)
   res.redirect('/');
   res.json({ status: 'signed in' })
 })

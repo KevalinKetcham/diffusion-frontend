@@ -63,7 +63,7 @@ class Write extends React.Component {
                 <h1>Simply start by uploading a book</h1>
                 <p>Upload a piece (however much you want to start with) of your book and we’ll handle distribution, monetization, and guide you along the way.</p>
                 <p>This will start the auto formating process. You will be able to proceed when your book has finished formating. Again, you can upload a small peice or the entire thing.</p>
-                <button onClick={()=>this.uploadModal()}>Get Started!</button>
+                <button className="shadow--orange hover unhover" onClick={()=>this.uploadModal()}>Get Started!</button>
             </div>
             <img src={uploadIllustration} alt="question illustration"></img>
           </div>

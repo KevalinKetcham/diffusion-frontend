@@ -28,7 +28,7 @@ function Landing() {
         <div className="container1">
             <div>
               <h1>YouTube for books</h1>
-              <p>The best place to read and publish books. You simply upload a peice (however much you want to start with) of your book and we’ll handle distribution, monetization, and guide you along the way. As a reader you’ll get access to some of the best liturature for free.</p>
+              <p>The best place to read and publish books. You simply upload a piece (however much you want to start with) of your book and we’ll handle distribution, monetization, and guide you along the way. As a reader you’ll get access to some of the best liturature for free.</p>
               <Link to="/signup"><button className="shadow--orange hover unhover">Sign Up</button></Link>
             </div>
             <img className="educationIllustration" src={educationIllustration} alt="education illustration"></img>

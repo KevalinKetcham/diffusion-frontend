@@ -5,7 +5,14 @@ Auth
 Backend
     Book upload
 
-.env server connection
+Render write page status from backend/db (the page goes back to the initial state when reloaded)
+
+
+Form validations and error messages and indication from both frontend and backend
+
+.env server connection + .env keys on repl.it
+
+Read "Serving Icons"
 
 Navbar
     Mobile responsiveness
@@ -13,16 +20,14 @@ Navbar
 
 Add different header for every page
 
-Email when new user signs upload
-
-Create social media accounts
-    Twitter: @trydiffusion
-    Discord: Diffusion
+Email when new user signs upload [manually?]
 
 Figure out and explain copyright policy
 Terms and conditions
 
 Check text
 Test for bugs
+
+Change twitter bio and organize discord server.
 
 Set up deployment workflows
