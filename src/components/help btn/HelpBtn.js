@@ -24,7 +24,7 @@ class HelpBtn extends React.Component {
         {
           qBtn
           &&
-          <button className="qBtn" onClick={()=>this.toggleComponent()}>?</button>
+          <button className="qBtn" onClick={()=>this.toggleComponent()}><p className="qBtn__text">?</p></button>
         }
         {
           clickedQBtn

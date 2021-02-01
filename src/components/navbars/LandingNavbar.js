@@ -11,9 +11,10 @@ function LandingNavbar() {
     <>
         <nav>
             <Branding></Branding>
+            <ul><li><Link to="faq" className="reactLink">FAQs</Link></li></ul>
             <div>
-                <Link to="/signin"><button className="navbarBtn" id="signinBtn">Sign In</button></Link>
-                <Link to="/signup"><button className="navbarBtn" id="signupBtn">Sign Up</button></Link>
+              <Link to="/signin"><button className="navbarBtn" id="signinBtn">Sign In</button></Link>
+              <Link to="/signup"><button className="navbarBtn" id="signupBtn">Sign Up</button></Link>
             </div>
         </nav>
     </>

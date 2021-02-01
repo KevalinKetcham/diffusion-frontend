@@ -28,17 +28,24 @@ class Signup extends React.Component {
     })
   }
 
-  async handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
     const data = this.state;
     console.log(data)
 
-    await fetch('http://localhost:3001/signup', {
+    fetch('http://localhost:3001/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data)
+    })
+    .then(response => {
+      if(response.status === 200) {
+        window.location = 'http://localhost:3000/signin';
+      } else {
+        console.log('Response error!')
+      }
     })
   }
 
