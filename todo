@@ -1,8 +1,11 @@
 Auth
     Signin & signup
     If signed in show landing page with navigation to [/faq, /write, /read, /signin, /signup]
-
-FAQ handling
+    FAQ handling
+        Display signin if not signed in
+    Feedback
+        Red highlight
+        Messages
 
 Backend
     Book upload

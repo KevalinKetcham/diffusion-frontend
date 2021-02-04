@@ -8,7 +8,6 @@ const cors = require('cors')
 app.use(cors())
 
 const bodyParser = require('body-parser')
-const session = require('express-session')
 const port = 3001
 
 const jwt = require('jsonwebtoken');
@@ -18,20 +17,41 @@ let genToken = (user) => {
     }, 'secret');
 }
 
-var passport = require('passport');
+var passport = require('passport')
+    , LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
 
 passport.use(UserModel.createStrategy());
 passport.serializeUser(UserModel.serializeUser());
 passport.deserializeUser(UserModel.deserializeUser());
-    
+
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+      UserModel.findOne({ username: username }, function (err, user) {
+        if (err) {
+            return done(err);
+        }
+        if (!user) {
+            return done(null, false);
+        }
+        if (user.authenticate(password, (err, isMatch)=>{
+            if (err) throw err;
+            console.log(password, isMatch);
+        })) {
+            return done(null, false);
+        }
+        return done(null, user);
+      });
+    }
+  ));
+
 var opts = {}
 opts.jwtFromRequest = ExtractJwt.fromBodyField('jwt');
 opts.secretOrKey = 'secret';
 
-passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    UserModel.findOne({id: jwt_payload.sub}, function(err, user) {
+passport.use(new JwtStrategy(opts, function(token, done) {
+    UserModel.findOne({id: token.sub}, function(err, user) {
         if (err) {
             return done(err, false);
         }
@@ -47,13 +67,6 @@ passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}))
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -68,23 +81,21 @@ app.post('/signup', async (req, res)=>{
   })
 })
 
-app.post('/signin', passport.authenticate('jwt', { session: false }), (req, res)=>{
-    console.log('Signed in!')
-
-    let token = genToken(req.user)
-    console.log(token)
-
-    res.send(token)
-
-//   res.status(200).send('cow')
-//   res.status(400).send('Invalid password')
-})
+app.post('/signin', passport.authenticate('local'),
+    (req, res) => {
+        // console.log(req)
+        console.log(res)
+        // console.log(done)
+    }
+);
 
 // app.post('/signin', passport.authenticate('jwt', { session: false }), (req, res)=>{
 //     console.log('Signed in!')
 
 //     let token = genToken(req.user)
 //     console.log(token)
+
+//     res.send(token)
 
 // //   res.status(200).send('cow')
 // //   res.status(400).send('Invalid password')

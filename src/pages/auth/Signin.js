@@ -52,7 +52,7 @@ class Signin extends React.Component {
               <label className="form__label" htmlFor="username">Email</label>
               <input onChange={this.handleChange} value={this.state.username} name="username" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
               <label className="form__label" htmlFor="password">Password</label>
-              <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="8+ characters" type="password" autoComplete="off" minLength="8" required></input>
+              <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="Password here..." type="password" autoComplete="off" minLength="8" required></input>
               <button className="authBtn">Sign In</button>
           </form>
           <Link to="/signup"><p className="auth__p">Don't have an account? Sign up here!</p></Link>
