@@ -17,7 +17,7 @@
     color: #ffffff;
     top: -65px;
     position: relative;
-    animation: spin 2s linear infinite;
+    animation: spin 3s linear infinite;
 
 }
 
@@ -36,27 +36,27 @@
 
 .clickedQBtn button {
     height: 35px;
-    width: 35px;
+    width: 45px;
     top: -10px;
     left: -10px;
     box-shadow: 0 10px 30px 5px #639fff9a;
     font-size: 20px;
     color: #ffffff;
     background-color: #2176FF;
-    border-radius: 50px;
+    border-radius: 50%;
     border: none;
     position: relative;
     display: block;
+    align-items: center;
+    justify-content: center;
     outline: none;
     cursor: pointer;
 }
 
 .clickedQBtn button img {
-    width: 20px;
-    height: 20px;
-    top: 3px;
+    width: 15px;
+    height: 15px;
     background: none;
-    position: relative;
 }
 
 .clickedQBtn p, b {
