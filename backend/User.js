@@ -15,6 +15,14 @@ let UserModel = new mongoose.Schema({
 
 // UserModel.pre('save',
 //   async (next) => {
+
+
+//     next();
+//   }
+// )
+
+// UserModel.pre('save',
+//   async (next) => {
 //     let user = this.password;
 //     console.log(user)
 //     let hash = await bcrypt.hash(this.password, 10);
