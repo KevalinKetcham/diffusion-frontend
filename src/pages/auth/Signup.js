@@ -11,8 +11,9 @@ class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: '',
-      password: ''
+      email: '',
+      password: '',
+      message: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,12 +41,19 @@ class Signup extends React.Component {
       },
       body: JSON.stringify(data)
     })
-    .then(response => {
-      if(response.status === 200) {
-        window.location = 'http://localhost:3000/signin';
-      } else {
-        console.log('Response error!')
-      }
+    .then(response => response.json())
+    .then(responseJSON => {
+      console.log(responseJSON)
+    //   if(response.status === 200) {
+    //     // window.location = 'http://localhost:3000/signin';
+
+    //     console.log(response.json());
+    //   } else {
+    //     console.log('Response error!')
+
+    //     console.log(response.json());
+    //   }
+    // })
     })
   }
 
@@ -58,7 +66,7 @@ class Signup extends React.Component {
           <h1>Sign Up</h1>
           <form onSubmit={this.handleSubmit} className="auth__form" noValidate>
               <label className="form__label" htmlFor="username">Email</label>
-              <input onChange={this.handleChange} value={this.state.username} name="username" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
+              <input onChange={this.handleChange} value={this.state.email} name="email" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
               <label className="form__label" htmlFor="password">Password</label>
               <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="8+ characters" type="password" autoComplete="off" minLength="8" required></input>
               <button className="authBtn">Sign Up</button>

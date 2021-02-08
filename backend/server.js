@@ -12,60 +12,8 @@ const bodyParser = require('body-parser')
 let bcrypt = require('bcrypt');
 const port = 3001
 
-const jwt = require('jsonwebtoken');
-let genToken = (user) => {
-    return jwt.sign({
-        sub: user.id
-    }, 'secret');
-}
-
-var passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
-var JwtStrategy = require('passport-jwt').Strategy,
-    ExtractJwt = require('passport-jwt').ExtractJwt;
-
-passport.use(new LocalStrategy(
-    (username, password, done) => {
-        UserModel.findOne({ username: username }, function (err, user) {
-        if (err) { return done(err); }
-        if (!user) {
-            return done(null, false, { message: 'Incorrect username.' });
-        }
-        if (!user.validPassword(password)) {
-            return done(null, false, { message: 'Incorrect password.' });
-        }
-        return done(null, user);
-        });
-    }
-));
-
-var opts = {}
-opts.jwtFromRequest = ExtractJwt.fromBodyField('jwt');
-opts.secretOrKey = 'secret';
-
-passport.use(new JwtStrategy(opts, function(token, done) {
-    UserModel.findOne({id: token.sub}, function(err, user) {
-        if (err) {
-            return done(err, false);
-        }
-        if (user) {
-            return done(null, user);
-        } else {
-            return done(null, false);
-            // or you could create a new account
-        }
-    });
-}));
-
-// passport.use(UserModel.createStrategy());
-// passport.serializeUser(UserModel.serializeUser());
-// passport.deserializeUser(UserModel.deserializeUser());
-
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.post('/signup',
     async (req, res) => {
@@ -77,10 +25,10 @@ app.post('/signup',
                 await UserModel.create({ email: req.body.email, password: password })
 
                 console.log('User with email ' + req.body.email + ' created!')
-                res.send('User with email ' + req.body.email + ' created!')
+                res.status(200).json({ message: 'User with email ' + req.body.email + ' created!' })
             } else {
                 console.log('Email already in use!')
-                res.send('Email already in use!')
+                res.json({ message: 'Email already in use!' })
             }
         })
     }
@@ -97,7 +45,7 @@ app.post('/signin',
                 let userPassword = docs.password;
                 let compare = await bcrypt.compare(req.body.password, userPassword)
                 if(compare) {
-                    res.send('Signed in!')
+                    res.send(req.body.email + ' signed in!')
                 } else {
                     res.send('Incorrect password!')
                 }
