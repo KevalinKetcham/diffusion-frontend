@@ -11,7 +11,7 @@ function ShareBtns() {
   return (
     <>
         <div className="socialIcons">
-            <a id="twitter" href="https://twitter.com/compose/tweet" target="_blank" rel="noreferrer">
+            <a id="twitter" href="https://twitter.com/intent/tweet?text=Check%20out%20@diffusionapp!%20They%27re%20building%20YouTube%20for%20books!" target="_blank" rel="noreferrer">
                 <img src={twitter} alt="twitter icon"></img>
             </a>
             <a id="gmail" href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank" rel="noreferrer">

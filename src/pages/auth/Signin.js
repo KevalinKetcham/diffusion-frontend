@@ -10,7 +10,7 @@ class Signin extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      email: '',
       password: ''
     }
 
@@ -39,6 +39,8 @@ class Signin extends React.Component {
       },
       body: JSON.stringify(data)
     })
+    .then(response => response.json())
+    .then(data => document.cookie = `session=${data.session}`)
   }
 
   render() {
@@ -50,7 +52,7 @@ class Signin extends React.Component {
           <h1>Sign In</h1>
           <form onSubmit={this.handleSubmit} className="auth__form" noValidate>
               <label className="form__label" htmlFor="username">Email</label>
-              <input onChange={this.handleChange} value={this.state.username} name="username" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
+              <input onChange={this.handleChange} value={this.state.username} name="email" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
               <label className="form__label" htmlFor="password">Password</label>
               <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="Password here..." type="password" autoComplete="off" minLength="8" required></input>
               <button className="authBtn">Sign In</button>

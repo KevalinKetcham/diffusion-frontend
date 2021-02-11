@@ -1,11 +1,11 @@
 Auth
-    Signin & signup
     If signed in show landing page with navigation to [/faq, /write, /read, /signin, /signup]
     FAQ handling
         Display signin if not signed in
     Feedback
         Red highlight
         Messages
+    ERROR HANDLING!!!!
 
 Backend
     Book upload
@@ -17,6 +17,8 @@ Form validations and error messages and indication from both frontend and backen
 .env server connection + .env keys on repl.it
 
 Read article on storing state
+
+Migrate to next.js
 
 Redirect to home after logout
 

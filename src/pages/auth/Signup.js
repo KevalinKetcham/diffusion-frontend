@@ -42,18 +42,12 @@ class Signup extends React.Component {
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(responseJSON => {
-      console.log(responseJSON)
-    //   if(response.status === 200) {
-    //     // window.location = 'http://localhost:3000/signin';
-
-    //     console.log(response.json());
-    //   } else {
-    //     console.log('Response error!')
-
-    //     console.log(response.json());
-    //   }
-    // })
+    .then(data => {
+      if(data.status === 200) {
+        window.location = 'http://localhost:3000/signin';
+      } else {
+        console.log('Response error!')
+      }
     })
   }
 

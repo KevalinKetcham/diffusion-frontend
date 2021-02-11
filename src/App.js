@@ -5,6 +5,8 @@ import FAQ from './pages/faq/FAQ';
 import Write from './pages/write/Write';
 import Read from './pages/read/Read';
 
+import ProtectedRoute from './components/ProtectedRoute';
+
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -30,12 +32,8 @@ function App() {
           <Route path="/faq" exact>
             <FAQ></FAQ>
           </Route>
-          <Route path="/write" exact>
-            <Write></Write>
-          </Route>
-          <Route path="/read" exact>
-            <Read></Read>
-          </Route>
+          <ProtectedRoute path="/write" component={Write} exact></ProtectedRoute>
+          <ProtectedRoute path="/read" component={Read} exact></ProtectedRoute>
           <Route>
             <div style={{ textAlign: "center", marginTop: "25%" }}>
               <h1>Error 404</h1>

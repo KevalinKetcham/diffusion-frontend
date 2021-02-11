@@ -13,31 +13,6 @@ let UserModel = new mongoose.Schema({
   }
 })
 
-// UserModel.pre('save',
-//   async (next) => {
-
-
-//     next();
-//   }
-// )
-
-// UserModel.pre('save',
-//   async (next) => {
-//     let user = this.password;
-//     console.log(user)
-//     let hash = await bcrypt.hash(this.password, 10);
-
-//     this.password = hash;
-//     next();
-//   }
-// )
-
-// UserModel.methods.isValidPassword = async (password) => {
-//   let user = this;
-//   let compare = await bcrypt.compare(password, user.password);
-
-//   return compare;
-// }
 
 module.exports = mongoose.model('User', UserModel)
 

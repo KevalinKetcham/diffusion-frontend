@@ -12,8 +12,21 @@ const bodyParser = require('body-parser')
 let bcrypt = require('bcrypt');
 const port = 3001
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser())
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+const CryptoJS = require('crypto-js')
+
+const genVal = (email, password) => {
+    let plainData = {
+        email: email,
+        password: password
+    }
+    let cipherData = CryptoJS.AES.encrypt(JSON.stringify(plainData), 'antarctica').toString();
+    return cipherData;
+}
 
 app.post('/signup',
     async (req, res) => {
@@ -25,7 +38,7 @@ app.post('/signup',
                 await UserModel.create({ email: req.body.email, password: password })
 
                 console.log('User with email ' + req.body.email + ' created!')
-                res.status(200).json({ message: 'User with email ' + req.body.email + ' created!' })
+                res.status(200).json({ status: 200, message: 'User with email ' + req.body.email + ' created!' })
             } else {
                 console.log('Email already in use!')
                 res.json({ message: 'Email already in use!' })
@@ -45,7 +58,10 @@ app.post('/signin',
                 let userPassword = docs.password;
                 let compare = await bcrypt.compare(req.body.password, userPassword)
                 if(compare) {
-                    res.send(req.body.email + ' signed in!')
+                    let cipherData = genVal(req.body.email, req.body.password)
+
+                    res.json({ session: cipherData })
+                    console.log(req.body.email + ' signed in!')
                 } else {
                     res.send('Incorrect password!')
                 }
@@ -55,14 +71,37 @@ app.post('/signin',
     }
 );
 
-app.get('/signout', (req, res)=>{
-  req.logout();
-  res.redirect('/');
-  res.json({ status: 'signed out' })
-})
+app.post('/check', async (req, res)=>{
+    let session = req.body.cookie;
+    let byteData = CryptoJS.AES.decrypt(session, 'antarctica');
+    let user = null;
+    try {
+        let plain = JSON.parse(byteData.toString(CryptoJS.enc.Utf8))
+        user = plain;     
+    } catch (error) {
+        console.log('Token currupt ' + error)
+        res.json({ message: 'Token currupt' })
+        return;
+    }
 
-app.get('/', (req, res) => {
-  res.send('/ route')
+    let email = user.email;
+    let password = user.password;
+
+    await UserModel.findOne({ email: email }, async (err, docs) => {
+        if(docs === null) {
+            res.json({ message: 'Email in token is invalid. Please signin again.' })
+        } else {
+            let userPassword = docs.password;
+            let compare = await bcrypt.compare(password, userPassword)
+            if(compare) {
+                let cipherData = genVal(email, password)
+
+                res.json({ message: 'Check for email and password was successful!', email: email, session: cipherData })
+            } else {
+                res.json({ message: 'Incorrect password in token!' })
+            }
+        }
+    })
 })
 
 app.listen(port, () => {
