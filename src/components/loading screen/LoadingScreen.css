@@ -1,0 +1,10 @@
+.LoadingScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingIcon {
+    animation: spin 1s linear infinite;
+    animation-direction: reverse;
+}

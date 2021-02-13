@@ -1,46 +1,49 @@
-Auth
-    If signed in show landing page with navigation to [/faq, /write, /read, /signin, /signup]
-    FAQ handling
-        Display signin if not signed in
-    Feedback
-        Red highlight
-        Messages
-    ERROR HANDLING!!!!
+Backend routes and Auth
+    2 states
+        auth
+        user display
+    Check auth status before every route and set it in recoil state
 
-Backend
-    Book upload
+    Render based on auth status
+    Display signin if not signed in - signout button with componend did and unmount
+    Signin in nav side
+    remove faqs and reditect to faq if signed in
 
+    Component that checks if the user is authenticated and adds that data to the global state
+    This component is loaded before every route
+    All components use this data
+
+Book upload
 Render write page status from backend/db (the page goes back to the initial state when reloaded)
 
-Form validations and error messages and indication from both frontend and backend
+Error handling
+    Feedback - overall too
+        Red highlight
+        Messages - from backend too
 
-.env server connection + .env keys on repl.it
-
-Read article on storing state
-
-Migrate to next.js
-
-Redirect to home after logout
+Increase font size
 
 Navbar
     Mobile responsiveness
-    Username display
 
 Add different header for every page
-
-Email when new user signs upload [manually?]
-
-Figure out and explain copyright policy
-Terms and conditions
-
-Check text
-Test for bugs
-
-Label emails as 'email' rather than 'username'
-
-Change twitter bio and organize discord server.
-
+Migrate to next.js - protect w/ .env on GitHub and Repl.it
+Configure hello@diffusionapp.com
+jobs.diffusionapp.com redirect page
 Set up deployment workflows
 
 
-jobs.diffusionapp.com redirect page
+Email when new user signs upload [manually?]
+Figure out and explain copyright policy
+Terms and conditions
+Check text
+Test for bugs
+
+Organize discord server.
+
+Add google analytics
+
+DEPLOY!!!
+
+
+Create LinkedIn page and change LinkedIn
