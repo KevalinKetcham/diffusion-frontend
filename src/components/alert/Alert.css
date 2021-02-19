@@ -5,15 +5,28 @@
 }
 
 .timeoutBar {
-    height: 10px;
-    background-color: rgb(255, 166, 0);
+    height: 5px;
+    background-color: #ffad48;
+    animation: shrink-bar 3s forwards;
 }
 
 .alertBox {
+    color: #4e4e4e;
     padding: 10px 20px;
     border-radius: 10px;
+    width: min-content;
+    white-space: nowrap;
+    max-width: 60%;
     display: flex;
+    margin: 20px auto 0 auto;
     align-items: center;
     justify-content: center;
-    background-color: rgb(245, 226, 220);
+    background-color: #ffd4a0;
+    box-shadow: 0 10px 30px 5px #ffd4a0;
+    z-index: 6;
+}
+
+@keyframes shrink-bar {
+    0% { width:100% }
+    100% { width:0% }
 }

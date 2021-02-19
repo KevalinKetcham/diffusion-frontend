@@ -6,12 +6,11 @@ import { alertState } from '../../state/Atoms';
 import './Alert.css';
 
 const Alert = () => {
-    const [alert, setAlert] = useRecoilState(alertState)
+    const [alert, setAlert] = useRecoilState(alertState);
 
     useEffect(() => {
-        setTimeout(() => { setAlert({ display: false, message: '' }) }, 10000)
+        setTimeout(() => { setAlert({ display: false, message: '' }) }, 3000)
     }, [])
-
 
     if(alert.display) {
         return (
