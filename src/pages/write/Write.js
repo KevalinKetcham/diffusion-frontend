@@ -8,17 +8,16 @@ import Background from '../../components/background/Background';
 import Preupload from '../../components/upload/Preuplaod';
 import Postupload from '../../components/upload/Postupload';
 
-import { useRecoilValue } from 'recoil';
-import { userEmailState } from '../../state/Atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import { userEmailState, publishedState } from '../../state/Atoms';
 
 const Write = () => {
   const userEmail = useRecoilValue(userEmailState);
+  const [published, setPublished] = useRecoilState(publishedState)
 
   const checkUpload = () => {
     if(userEmail !== null) {
       let data = { email: userEmail }
-
-      console.log(data);
 
       fetch('http://localhost:3001/upload/check', {
           method: 'POST',
@@ -29,7 +28,11 @@ const Write = () => {
       })
       .then(response => response.json())
       .then(data => {
-          console.log(data)
+          if(data.published) {
+            setPublished(true);
+          } else {
+            setPublished(false);
+          }
       })
     } else { return }
   }
@@ -38,7 +41,7 @@ const Write = () => {
     checkUpload();
   }, [userEmail]);
 
-  if(false) {
+  if(!published) {
     return (
     <>
       < AuthorNavbar />

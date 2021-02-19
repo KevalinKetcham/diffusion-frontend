@@ -5,6 +5,8 @@ import FAQ from './pages/faq/FAQ';
 import Write from './pages/write/Write';
 import Read from './pages/read/Read';
 
+import Alert from './components/alert/Alert'
+
 import Authentication from './components/Authentication';
 
 import './App.css';
@@ -17,6 +19,7 @@ import {
 function App() {
   return (
   <>
+  <Alert />
   <div style={{ margin: '0 10% 0 10%' }}>
     <Router>
       <Switch>

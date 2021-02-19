@@ -1,0 +1,19 @@
+.alertDiv {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.timeoutBar {
+    height: 10px;
+    background-color: rgb(255, 166, 0);
+}
+
+.alertBox {
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 226, 220);
+}

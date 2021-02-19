@@ -15,8 +15,20 @@ export const userEmailState = atom({
   default: null,
 })
   
+export const publishedState = atom({
+  key: 'publishedState',
+  default: false,
+})
 
 export const uploadModalDisplayState = atom({
   key: 'uploadModalDisplayState',
   default: false,
 })
+
+export const alertState = atom({
+    key: 'alertState',
+    default: {
+        display: false,
+        message: ''
+    },
+  })

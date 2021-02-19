@@ -6,6 +6,7 @@ aws.config.region = 'us-west-2';
 
 require('./Database')
 var UserModel = require('./User');
+var UploadReference = require('./UploadReference');
 
 const S3_BUCKET = process.env.S3_BUCKET;
 
@@ -37,6 +38,21 @@ router.post('/sreq', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+    UserModel.findOne({ email: req.body.email }, (err, user) => {
+        if(err) {
+            console.log('User with the provided email wasn\'t found. Error: ' + err);
+        } else {
+            UploadReference.create({
+                title: req.body.title,
+                penName: req.body.penName,
+                description: req.body.description,
+                tags: req.body.tags,
+                email: req.body.email,
+                s3File: req.body.s3File
+            })
+        }
+    })
+
     res.json({ req: req.body })
 
     // append author object to user sent in email
@@ -44,15 +60,14 @@ router.post('/', async (req, res) => {
 })
 
 router.post('/check', async (req, res) => {
-    res.send('Not published!')
-
-    // await UserModel.findOne({ email: req.body.email }, async (err, docs) => {
-    //     if(docs.isPublished) {
-    //         res.send('Published!')
-    //     } else {
-    //         res.send('Not published!')
-    //     }
-    // })
+    UploadReference.findOne({ email: req.body.email }, (err, user) => {
+        if(err) {
+            console.log(err)
+            res.json({ published: false })
+        } else {
+            res.json({ published: true })
+        }
+    })
 })
 
 module.exports = router;

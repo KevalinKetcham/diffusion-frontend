@@ -2,6 +2,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 .screen {
   display: flex;
   justify-content: center;

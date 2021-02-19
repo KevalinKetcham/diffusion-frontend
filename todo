@@ -1,24 +1,15 @@
-Book upload
-    On mount check publication status
-    add this to state
-
-Conduct authentication before returning signed request
-
-parse out any abnormal characters
-
-    when you submit a book it adds a published boolean value and the book file and data to the user dirived from the cookie
-
-.. upload backend details :: when user changes sumbits the for it proceeds
-
-Component loading indication
-
 Error handling | use formik
     alert component
     Feedback - overall too
         Red highlight
-        Messages - from backend too
 
-Store use files as email without <at> and <dot> and append some random numbers
+User messages!!!!
+
+finish publish click --> loading --> re-rendering
+
+Conduct authentication before returning signed request
+
+Component loading indication
 
 Increase font size
 
@@ -52,4 +43,8 @@ DEPLOY!!!
 
 Create LinkedIn page and change LinkedIn
 
-Simplify backend using Express.router, functions, and middleware
+
+
+
+Simplify backend using middleware
+replace unique email with the db unique id
