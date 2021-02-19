@@ -21,11 +21,6 @@ nav li {
     margin: 0 30px 0 0;
 }
 
-.reactLink {
-    color: black;
-    text-decoration: none;
-}
-
 .discord {
     animation: color-change 5s infinite;
     font-weight: 800;
@@ -48,13 +43,12 @@ nav li {
     cursor: pointer;
 }
 
-#signinBtn {
-    margin: 0 20px 0 0;
-    background: none;
+.signinBtn {
+    background: #81818139;
     border: 2px solid #D6D6D6;
 }
 
-#signupBtn {
+.signupBtn {
     color: #ffffff;
     background: #F79824;
     border: 2px solid #F79824;
@@ -64,9 +58,6 @@ nav li {
     .navbarBtn {
         width: 80px;
         height: 40px;
-    }
-    #signinBtn {
-        margin: 0 10px 0 0;
     }
 }
 

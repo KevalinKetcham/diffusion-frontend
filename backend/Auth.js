@@ -1,23 +1,11 @@
 const express = require('express')
-const app = express()
+const router = express.Router()
 
-const mongoose = require('mongoose')
 require('./Database')
 var UserModel = require('./User');
 
-const cors = require('cors')
-app.use(cors())
-
-const bodyParser = require('body-parser')
+const CryptoJS = require('crypto-js');
 let bcrypt = require('bcrypt');
-const port = 3001
-
-const cookieParser = require('cookie-parser');
-app.use(cookieParser())
-
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-const CryptoJS = require('crypto-js')
 
 const genVal = (email, password) => {
     let plainData = {
@@ -28,7 +16,7 @@ const genVal = (email, password) => {
     return cipherData;
 }
 
-app.post('/signup',
+router.post('/signup',
     async (req, res) => {
         console.log('User ' + req.body.email + ' with password ' + req.body.password + ' reached this route!')
 
@@ -47,7 +35,7 @@ app.post('/signup',
     }
 )
 
-app.post('/signin',
+router.post('/signin',
     async (req, res) => {
         console.log('User ' + req.body.email + ' with password ' + req.body.password + ' hit this route!')
 
@@ -71,7 +59,7 @@ app.post('/signin',
     }
 );
 
-app.post('/check', async (req, res)=>{
+router.post('/check', async (req, res)=>{
     let session = req.body.cookie;
     let byteData = CryptoJS.AES.decrypt(session, 'antarctica');
     let user = null;
@@ -104,6 +92,4 @@ app.post('/check', async (req, res)=>{
     })
 })
 
-app.listen(port, () => {
-  console.log(`Lstening at http://localhost:${port}`)
-})
+module.exports = router;

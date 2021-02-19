@@ -1,94 +1,69 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+
 import AuthorNavbar from '../../components/navbars/AuthorNavbar';
-
-// Share btns
 import ShareBtns from '../../components/share btns/ShareBtns';
-
-// Illustration
-import uploadIllustration from '../../assets/illustrations/uploadIllustrationYellow.svg';
-
-// Help Btn
 import HelpBtn from '../../components/help btn/HelpBtn';
-
 import Background from '../../components/background/Background';
 
-// Upload process
-import UploadModal from '../../components/upload modal/UploadModal';
-import Formatting from '../../components/Formatting';
+import Preupload from '../../components/upload/Preuplaod';
+import Postupload from '../../components/upload/Postupload';
 
-import './Write.css';
+import { useRecoilValue } from 'recoil';
+import { userEmailState } from '../../state/Atoms';
 
-class Write extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      defaultContent: true,
-      uploadModal: false,
-      formatting: false
-    }
-    this.defaultContent = this.defaultContent.bind(this);
-    this.uploadModal = this.uploadModal.bind(this);
-    this.formatting = this.formatting.bind(this);
+const Write = () => {
+  const userEmail = useRecoilValue(userEmailState);
+
+  const checkUpload = () => {
+    if(userEmail !== null) {
+      let data = { email: userEmail }
+
+      console.log(data);
+
+      fetch('http://localhost:3001/upload/check', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log(data)
+      })
+    } else { return }
   }
 
-  defaultContent() {
-    this.setState({ defaultContent: true });
-    this.setState({ uploadModal: false });
-    this.setState({ formatting: false });
-  }
+  useEffect(() => {
+    checkUpload();
+  }, [userEmail]);
 
-  uploadModal() {
-    this.setState({ defaultContent: false });
-    this.setState({ uploadModal: true });
-    this.setState({ formatting: false });
-  }
-
-  formatting() {
-    this.setState({ defaultContent: false });
-    this.setState({ uploadModal: false });
-    this.setState({ formatting: true });
-  }
-
-  render() {
-    let { defaultContent, uploadModal, formatting } = this.state;
+  if(false) {
     return (
     <>
-      <AuthorNavbar></AuthorNavbar>
-      {
-        defaultContent
-        &&
-        <>
-          <div className="container1">
-            <div>
-                <h1>Simply start by uploading a book</h1>
-                <p>Upload a piece (however much you want to start with) of your book and we’ll handle distribution, monetization, and guide you along the way.</p>
-                <p>This will start the auto formating process. You will be able to proceed when your book has finished formating. Again, you can upload a small peice or the entire thing.</p>
-                <button className="shadow--orange hover unhover" onClick={()=>this.uploadModal()}>Get Started!</button>
-            </div>
-            <img src={uploadIllustration} alt="question illustration"></img>
-          </div>
-          <ShareBtns></ShareBtns>
-          <HelpBtn></HelpBtn>
-        </>
-      }
-      {
-        uploadModal
-        &&
-        <UploadModal defaultContent={this.defaultContent} formatting={this.formatting}></UploadModal>
-      }
-      {
-        formatting
-        &&
-        <>
-          <Formatting></Formatting>
-          <ShareBtns></ShareBtns>
-          <HelpBtn></HelpBtn>
-        </>
-      }
-      <Background></Background>
+      < AuthorNavbar />
+
+      < Postupload />
+
+      < ShareBtns />
+      < HelpBtn />
+      < Background />
     </>
-    );
+    )
+  } else {
+    return (
+    <>
+      < AuthorNavbar />
+
+      < Preupload />
+
+      < ShareBtns />
+      < HelpBtn />
+      < Background />
+    </>
+    )
   }
+
 }
 
 export default Write;

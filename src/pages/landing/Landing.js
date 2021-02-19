@@ -21,13 +21,9 @@ import Background from '../../components/background/Background';
 
 import './Landing.css';
 
-// DELETE
-import LoadingScreen from '../../components/loading screen/LoadingScreen'
-
 function Landing() {
   return (
     <>
-        <LoadingScreen></LoadingScreen>
         <LandingNavbar></LandingNavbar>
         <div className="container1">
             <div>

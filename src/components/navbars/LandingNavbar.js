@@ -1,21 +1,15 @@
 import React from 'react';
 import Branding from '../branding/Branding';
-import './Navbar.css';
+import User from './user/User';
 
-import {
-  Link
-} from "react-router-dom";
+import './Navbar.css';
 
 function LandingNavbar() {
   return (
     <>
         <nav>
             <Branding></Branding>
-            <ul><li><Link to="faq" className="reactLink">FAQs</Link></li></ul>
-            <div>
-              <Link to="/signin"><button className="navbarBtn" id="signinBtn">Sign In</button></Link>
-              <Link to="/signup"><button className="navbarBtn" id="signupBtn">Sign Up</button></Link>
-            </div>
+            <User />
         </nav>
     </>
   );

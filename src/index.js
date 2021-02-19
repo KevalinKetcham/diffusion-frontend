@@ -5,21 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
+  RecoilRoot
 } from 'recoil';
-
-const appState = atom({
-  key: 'appState',
-  email: '',
-  ename: '',
-  isAuthenticating: '',
-  isAutenticated: '',
-
-})
 
 ReactDOM.render(
   <React.StrictMode>

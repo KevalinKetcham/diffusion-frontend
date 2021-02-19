@@ -1,6 +1,6 @@
 import React from 'react';
 import Branding from '../branding/Branding';
-import Username from './username/Username';
+import User from './user/User';
 import './Navbar.css';
 
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ function AuthorNavbar() {
                     <li><Link to="faq" className="reactLink">FAQs</Link></li>
                     <li><Link to="read" className="reactLink">Read</Link></li>
                 </ul>
-                <Username />
+                <User />
             </div>
         </nav>
     </>

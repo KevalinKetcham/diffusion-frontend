@@ -5,7 +5,7 @@ import FAQ from './pages/faq/FAQ';
 import Write from './pages/write/Write';
 import Read from './pages/read/Read';
 
-import ProtectedRoute from './components/ProtectedRoute';
+import Authentication from './components/Authentication';
 
 import './App.css';
 import {
@@ -20,24 +20,18 @@ function App() {
   <div style={{ margin: '0 10% 0 10%' }}>
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <Landing></Landing>
-        </Route>
-        <Route path="/signup" exact>
-          <Signup></Signup>
-        </Route>
-        <Route path="/signin" exact>
-          <Signin></Signin>
-        </Route>
+        <Authentication component={Landing} path="/" exact />
+        <Authentication component={Signup} path="/signup" exact />
+        <Authentication component={Signin} path="/signin" exact />
         <Route path="/faq" exact>
           <FAQ></FAQ>
         </Route>
-        <ProtectedRoute path="/write" component={Write} exact></ProtectedRoute>
-        <ProtectedRoute path="/read" component={Read} exact></ProtectedRoute>
+        <Authentication component={Write} path="/write" exact />
+        <Authentication component={Read} path="/read" exact />
         <Route>
           <div style={{ textAlign: "center", marginTop: "25%" }}>
             <h1>Error 404</h1>
-            <p>Page not found --> <a href="/">home</a></p>
+            <a href="/">home</a>
           </div>
         </Route>
       </Switch>

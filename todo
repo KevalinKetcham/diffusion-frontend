@@ -1,35 +1,38 @@
-Backend routes and Auth
-    2 states
-        auth
-        user display
-    Check auth status before every route and set it in recoil state
-
-    Render based on auth status
-    Display signin if not signed in - signout button with componend did and unmount
-    Signin in nav side
-    remove faqs and reditect to faq if signed in
-
-    Component that checks if the user is authenticated and adds that data to the global state
-    This component is loaded before every route
-    All components use this data
-
 Book upload
-Render write page status from backend/db (the page goes back to the initial state when reloaded)
+    On mount check publication status
+    add this to state
 
-Error handling
+Conduct authentication before returning signed request
+
+parse out any abnormal characters
+
+    when you submit a book it adds a published boolean value and the book file and data to the user dirived from the cookie
+
+.. upload backend details :: when user changes sumbits the for it proceeds
+
+Component loading indication
+
+Error handling | use formik
+    alert component
     Feedback - overall too
         Red highlight
         Messages - from backend too
+
+Store use files as email without <at> and <dot> and append some random numbers
 
 Increase font size
 
 Navbar
     Mobile responsiveness
 
-Add different header for every page
-Migrate to next.js - protect w/ .env on GitHub and Repl.it
+document.referrer to make back buttons actually go back
+Add different header for every page - use document.title
+Migrate to next.js - protect w/ .env on GitHub -- config vars over .env???
+Create variable API endpoint keys with .env
 Configure hello@diffusionapp.com
 jobs.diffusionapp.com redirect page
+    Create job
+Tweet about launch and job + retweet
 Set up deployment workflows
 
 
@@ -44,6 +47,9 @@ Organize discord server.
 Add google analytics
 
 DEPLOY!!!
+    Configure secret vars
 
 
 Create LinkedIn page and change LinkedIn
+
+Simplify backend using Express.router, functions, and middleware
