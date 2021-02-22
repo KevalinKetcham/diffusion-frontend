@@ -26,7 +26,7 @@ const Signin = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          fetch('http://localhost:3001/auth/signin', {
+          fetch('https://diffusionapp.com/auth/signin', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

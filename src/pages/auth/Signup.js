@@ -27,7 +27,7 @@ const Signup = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          fetch('http://localhost:3001/auth/signup', {
+          fetch('https://diffusionapp.com/auth/signup', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const Signup = () => {
           .then(response => response.json())
           .then(data => {
             if(data.status === 200) {
-              window.location = 'http://localhost:3000/signin';
+              window.location = 'https://diffusionapp.com/signin';
             } else {
               console.log('Response error!')
             }

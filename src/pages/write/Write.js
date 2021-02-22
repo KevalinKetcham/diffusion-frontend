@@ -19,7 +19,7 @@ const Write = () => {
     if(userEmail !== null) {
       let data = { email: userEmail }
 
-      fetch('http://localhost:3001/upload/check', {
+      fetch('https://diffusionapp.com/upload/check', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

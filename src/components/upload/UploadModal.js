@@ -27,7 +27,7 @@ const UploadModal = () => {
     let fileName = selectedFile.name;
     let fileType = selectedFile.type;
 
-    fetch('http://localhost:3001/upload/sreq', {
+    fetch('https://diffusionapp.com/upload/sreq', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ const UploadModal = () => {
             email: userEmail,
             s3File: file.name
           }
-          fetch('http://localhost:3001/upload', {
+          fetch('https://diffusionapp.com/upload', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

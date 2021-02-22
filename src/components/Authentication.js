@@ -20,7 +20,7 @@ const Authentication = (props) => {
             cookie: cookie
         }
 
-        fetch('http://localhost:3001/auth/check', {
+        fetch('https://diffusionapp.com/auth/check', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
