@@ -1,76 +1,68 @@
 import React from 'react';
-
 import {
   Link
 } from "react-router-dom";
-
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
-class Signup extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: '',
-      password: '',
-      message: ''
-    }
+const Signup = () => {
+  document.title = 'Signup | Diffusion'
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  return (
+  <>
+    <div className="screen">
+      <div className="auth">
+      <Link id="p--back" to="/"><p className="auth__p">back</p></Link>
+      <h1>Sign Up</h1>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={yup.object({
+          email: yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+          password: yup.string()
+            .min(8, 'Must be 8+ characters')
+            .required('Required')
+        })}
+        onSubmit={(values) => {
+          fetch('http://localhost:3001/auth/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values)
+          })
+          .then(response => response.json())
+          .then(data => {
+            if(data.status === 200) {
+              window.location = 'http://localhost:3000/signin';
+            } else {
+              console.log('Response error!')
+            }
+          })
+        }}
+      >
+        <Form className="auth__form">
+          <label className="form__label" htmlFor="email">Email</label>
+          <Field className="form__text" id="email" name="email" type="text" placeholder="Email" />
+          <ErrorMessage name="email">{msg => <div className="inputError">{msg}</div>}</ErrorMessage>
 
-  handleChange(event) {
-    let name = event.target.name;
-    let value = event.target.value;
 
-    this.setState({
-      [name]: value
-    })
-  }
+          <label className="form__label" htmlFor="password">Password</label>
+          <Field className="form__text" id="password" name="password" type="password" placeholder="8+ characters" />
+          <ErrorMessage name="password">{msg => <div className="inputError">{msg}</div>}</ErrorMessage>
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const data = this.state;
-    console.log(data)
+          <button className="authBtn" type="submit">Sign Up</button>
+        </Form>
+      </Formik>
 
-    fetch('http://localhost:3001/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.status === 200) {
-        window.location = 'http://localhost:3000/signin';
-      } else {
-        console.log('Response error!')
-      }
-    })
-  }
-
-  render() {
-    return (
-      <>
-      <div className="screen">
-        <div className="auth">
-          <Link id="p--back" to="/"><p className="auth__p">back</p></Link>
-          <h1>Sign Up</h1>
-          <form onSubmit={this.handleSubmit} className="auth__form" noValidate>
-              <label className="form__label" htmlFor="username">Email</label>
-              <input onChange={this.handleChange} value={this.state.email} name="email" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
-              <label className="form__label" htmlFor="password">Password</label>
-              <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="8+ characters" type="password" autoComplete="off" minLength="8" required></input>
-              <button className="authBtn">Sign Up</button>
-          </form>
-          <Link to="/signin"><p className="auth__p">Already have an account? Sign in here!</p></Link>
-        </div>
+      <Link to="/signin"><p className="auth__p">Already have an account? Sign in here!</p></Link>
       </div>
-      </>
-    )
-  }
+    </div>
+  </>
+  )
 }
 
 export default Signup;

@@ -10,7 +10,7 @@ const Alert = () => {
 
     useEffect(() => {
         setTimeout(() => { setAlert({ display: false, message: '' }) }, 3000)
-    }, [])
+    })
 
     if(alert.display) {
         return (

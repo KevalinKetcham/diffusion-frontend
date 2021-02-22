@@ -2,8 +2,18 @@
   font-family: 'Inter', sans-serif;
 }
 
+p {
+  font-size: 16px;
+}
+
 .hide {
   display: none;
+}
+
+@media(max-width:800px) {
+    .hide--mobile {
+        display: none;
+    }
 }
 
 .screen {
@@ -63,9 +73,9 @@
 
 .form__textarea {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   height: 120px;
-  margin: 0 0 15px 0;
+  margin: 5px 0 25px 0;
   padding: 16px 10px;
   border-radius: 8px;
   border: 2px solid #d4d4d4;
@@ -118,8 +128,12 @@ button {
 
 /* Form handling */
 
-.displayErrors input:invalid {
-  border-color: #ff0000;
+.inputError {
+  margin: 0 0 15px 0;
+  color: #ff0000;
+  font-size: 14px;
+  top: -15px;
+  position: relative;
 }
 
 /* Spin */

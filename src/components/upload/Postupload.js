@@ -2,6 +2,8 @@ import React from 'react';
 import loading from '../../assets/illustrations/loadingIllustrationOrange.svg';
 
 const Preupload = () => {
+    document.title = 'Write | Diffusion'
+
     return (
     <>
         <div className="container1">

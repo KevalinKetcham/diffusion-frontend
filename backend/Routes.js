@@ -14,10 +14,6 @@ app.use(cors())
 require('dotenv').config();
 const PORT = process.env.PORT;
 
-
-// const S3_BUCKET = process.env.S3_BUCKET;
-
-
 const auth = require('./Auth');
 const upload = require('./Upload');
 app.use('/auth', auth);

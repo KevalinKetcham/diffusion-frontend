@@ -15,6 +15,8 @@ import Background from '../../components/background/Background';
 import './FAQ.css';
 
 function FAQ() {
+  document.title = 'FAQs | Diffusion'
+
   return (
     <>
     <FAQNavbar></FAQNavbar>

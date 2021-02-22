@@ -54,15 +54,11 @@ router.post('/', async (req, res) => {
     })
 
     res.json({ req: req.body })
-
-    // append author object to user sent in email
-    // { isPublished: true, writing: <file here>, [other details]... }
 })
 
 router.post('/check', async (req, res) => {
     UploadReference.findOne({ email: req.body.email }, (err, user) => {
-        if(err) {
-            console.log(err)
+        if(user === null) {
             res.json({ published: false })
         } else {
             res.json({ published: true })

@@ -28,7 +28,7 @@ export const uploadModalDisplayState = atom({
 export const alertState = atom({
     key: 'alertState',
     default: {
-        display: true,
-        message: 'this is just a very fine message'
+        display: false,
+        message: ''
     },
   })

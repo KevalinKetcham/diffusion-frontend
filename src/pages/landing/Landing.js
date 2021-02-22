@@ -22,6 +22,8 @@ import Background from '../../components/background/Background';
 import './Landing.css';
 
 function Landing() {
+  document.title = 'YouTube for Books | Diffusion'
+
   return (
     <>
         <LandingNavbar></LandingNavbar>

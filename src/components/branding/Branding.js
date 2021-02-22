@@ -12,7 +12,7 @@ function Branding() {
     <Link to="/" className="link--branding">
         <div className="branding">
             <img className="spin" src={Logo} alt="logo"></img>
-            <p>Diffusion</p>
+            <p className="hide--mobile">Diffusion</p>
         </div>
     </Link>
     </>

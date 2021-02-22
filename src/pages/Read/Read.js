@@ -15,6 +15,8 @@ import Background from '../../components/background/Background';
 import './Read.css';
 
 function Read() {
+  document.title = 'Read | Diffusion'
+
   return (
     <>
         <ReaderNavbar></ReaderNavbar>

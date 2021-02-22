@@ -41,7 +41,7 @@ const Write = () => {
     checkUpload();
   }, [userEmail]);
 
-  if(!published) {
+  if(published) {
     return (
     <>
       < AuthorNavbar />

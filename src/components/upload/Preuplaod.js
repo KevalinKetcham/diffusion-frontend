@@ -7,10 +7,12 @@ import uploadIllustration from '../../assets/illustrations/uploadIllustrationYel
 import UploadModal from '../../components/upload/UploadModal';
 
 const Preupload = () => {
+    document.title = 'Write | Diffusion'
+
     const [uploadModalDisplay, setUploadModalDisplay] = useRecoilState(uploadModalDisplayState);
 
     const toggleModal = () => {
-        setUploadModalDisplay(!uploadModalDisplay)
+        setUploadModalDisplay(true)
     }
 
     if(uploadModalDisplay) {

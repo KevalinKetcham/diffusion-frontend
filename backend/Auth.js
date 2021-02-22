@@ -6,13 +6,14 @@ var UserModel = require('./User');
 
 const CryptoJS = require('crypto-js');
 let bcrypt = require('bcrypt');
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY;
 
 const genVal = (email, password) => {
     let plainData = {
         email: email,
         password: password
     }
-    let cipherData = CryptoJS.AES.encrypt(JSON.stringify(plainData), 'antarctica').toString();
+    let cipherData = CryptoJS.AES.encrypt(JSON.stringify(plainData), ENCRYPTION_KEY).toString();
     return cipherData;
 }
 
@@ -61,7 +62,7 @@ router.post('/signin',
 
 router.post('/check', async (req, res)=>{
     let session = req.body.cookie;
-    let byteData = CryptoJS.AES.decrypt(session, 'antarctica');
+    let byteData = CryptoJS.AES.decrypt(session, ENCRYPTION_KEY);
     let user = null;
     try {
         let plain = JSON.parse(byteData.toString(CryptoJS.enc.Utf8))

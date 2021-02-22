@@ -1,50 +1,32 @@
-Error handling | use formik
-    alert component
-    Feedback - overall too
-        Red highlight
+Create deployment process - DEPLOY!!!
 
-User messages!!!!
 
-finish publish click --> loading --> re-rendering
 
-Conduct authentication before returning signed request
 
-Component loading indication
 
-Increase font size
 
-Navbar
+Navbars
     Mobile responsiveness
 
-document.referrer to make back buttons actually go back
-Add different header for every page - use document.title
-Migrate to next.js - protect w/ .env on GitHub -- config vars over .env???
-Create variable API endpoint keys with .env
-Configure hello@diffusionapp.com
+Configure hello (&) kevalin @diffusionapp.com
 jobs.diffusionapp.com redirect page
     Create job
 Tweet about launch and job + retweet
-Set up deployment workflows
-
 
 Email when new user signs upload [manually?]
 Figure out and explain copyright policy
 Terms and conditions
 Check text
-Test for bugs
 
-Organize discord server.
-
+Organize discord server - @here ping
 Add google analytics
 
-DEPLOY!!!
-    Configure secret vars
+
+
+
+
 
 
 Create LinkedIn page and change LinkedIn
-
-
-
-
 Simplify backend using middleware
 replace unique email with the db unique id

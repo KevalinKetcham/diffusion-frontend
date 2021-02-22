@@ -2,67 +2,62 @@ import React from 'react';
 import {
   Link
 } from "react-router-dom";
-
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
-class Signin extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: '',
-      password: ''
-    }
+const Signin = () => {
+  document.title = 'Signin | Diffusion'
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  return (
+  <>
+    <div className="screen">
+      <div className="auth">
+      <Link id="p--back" to="/"><p className="auth__p">back</p></Link>
+      <h1>Sign In</h1>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={yup.object({
+          email: yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+          password: yup.string()
+            .required('Required')
+        })}
+        onSubmit={(values) => {
+          fetch('http://localhost:3001/auth/signin', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values)
+          })
+          .then(response => response.json())
+          .then(data => {
+            document.cookie = `session=${data.session}`
+            window.location.reload()
+          })
+        }}
+      >
+        <Form className="auth__form">
+          <label className="form__label" htmlFor="email">Email</label>
+          <Field className="form__text" id="email" name="email" type="text" placeholder="Email" />
+          <ErrorMessage name="email">{msg => <div className="inputError">{msg}</div>}</ErrorMessage>
 
-  handleChange(event) {
-    let name = event.target.name;
-    let value = event.target.value;
+          <label className="form__label" htmlFor="password">Password</label>
+          <Field className="form__text" id="password" name="password" type="password" placeholder="Password" />
+          <ErrorMessage name="password">{msg => <div className="inputError">{msg}</div>}</ErrorMessage>
 
-    this.setState({
-      [name]: value
-    })
-  }
+          <button className="authBtn" type="submit">Sign In</button>
+        </Form>
+      </Formik>
 
-  async handleSubmit(event) {
-    event.preventDefault();
-    const data = this.state;
-    console.log(data)
-
-    await fetch('http://localhost:3001/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => document.cookie = `session=${data.session}`)
-  }
-
-  render() {
-    return (
-      <>
-      <div className="screen">
-        <div className="auth">
-          <Link id="p--back" to="/"><p className="auth__p">back</p></Link>
-          <h1>Sign In</h1>
-          <form onSubmit={this.handleSubmit} className="auth__form" noValidate>
-              <label className="form__label" htmlFor="username">Email</label>
-              <input onChange={this.handleChange} value={this.state.username} name="email" className="form__text" id="email" placeholder="john.smith@example.com" type="email" autoComplete="off" required></input>
-              <label className="form__label" htmlFor="password">Password</label>
-              <input onChange={this.handleChange} value={this.state.password} name="password" className="form__text" id="password" placeholder="Password here..." type="password" autoComplete="off" minLength="8" required></input>
-              <button className="authBtn">Sign In</button>
-          </form>
-          <Link to="/signup"><p className="auth__p">Don't have an account? Sign up here!</p></Link>
-        </div>
+      <Link to="/signup"><p className="auth__p">Don't have an account? Sign up here!</p></Link>
       </div>
-      </>
-    )
-  }
+    </div>
+  </>
+  )
 }
 
 export default Signin;
