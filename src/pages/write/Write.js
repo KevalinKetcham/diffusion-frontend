@@ -9,9 +9,11 @@ import Preupload from '../../components/upload/Preuplaod';
 import Postupload from '../../components/upload/Postupload';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { userEmailState, publishedState } from '../../state/Atoms';
+import { userEmailState, publishedState, deploymentState } from '../../state/Atoms';
 
 const Write = () => {
+  const deployment = useRecoilValue(deploymentState);
+
   const userEmail = useRecoilValue(userEmailState);
   const [published, setPublished] = useRecoilState(publishedState)
 
@@ -19,7 +21,7 @@ const Write = () => {
     if(userEmail !== null) {
       let data = { email: userEmail }
 
-      fetch('https://diffusionapp.com/upload/check', {
+      fetch(`${deployment}/upload/check`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

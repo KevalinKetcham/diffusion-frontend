@@ -32,3 +32,8 @@ export const alertState = atom({
         message: ''
     },
   })
+
+export const deploymentState = atom({
+  key: 'deploymentState',
+  default: null,
+})

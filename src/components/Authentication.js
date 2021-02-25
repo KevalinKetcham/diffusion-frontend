@@ -1,16 +1,16 @@
 import React, {useEffect} from 'react';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
 
 import { Redirect } from "react-router-dom";
 import LoadingScreen from '../components/loading screen/LoadingScreen';
 
-import { authenticatingState, authenticatedState, userEmailState } from '../state/Atoms'
-// delete this comment
+import { authenticatingState, authenticatedState, userEmailState, deploymentState } from '../state/Atoms'
 
 const Authentication = (props) => {
     const [authenticating, setAuthenticating] = useRecoilState(authenticatingState);
     const [authenticated, setAuthenticated] = useRecoilState(authenticatedState);
     const setUserEmail = useSetRecoilState(userEmailState);
+    const deployment = useRecoilValue(deploymentState);
 
     const authenticate = () => {
         setAuthenticating(true)
@@ -21,7 +21,7 @@ const Authentication = (props) => {
             cookie: cookie
         }
 
-        fetch('https://diffusionapp.com/auth/check', {
+        fetch(`${deployment}/auth/check`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

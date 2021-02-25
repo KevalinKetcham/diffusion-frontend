@@ -7,7 +7,12 @@ import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
+import { useRecoilValue } from 'recoil';
+import { deploymentState } from '../../state/Atoms';
+
 const Signin = () => {
+  const deployment = useRecoilValue(deploymentState);
+
   document.title = 'Signin | Diffusion'
 
   return (
@@ -26,7 +31,7 @@ const Signin = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          fetch('https://diffusionapp.com/auth/signin', {
+          fetch(`${deployment}/auth/signin`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
