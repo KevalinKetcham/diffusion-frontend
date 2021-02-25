@@ -12,7 +12,7 @@ import { useRecoilValue, useRecoilState } from 'recoil';
 import { userEmailState, publishedState } from '../../state/Atoms';
 
 const Write = () => {
-  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
+  let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   const userEmail = useRecoilValue(userEmailState);
   const [published, setPublished] = useRecoilState(publishedState)

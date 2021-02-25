@@ -7,7 +7,7 @@ import LoadingScreen from '../components/loading screen/LoadingScreen';
 import { authenticatingState, authenticatedState, userEmailState } from '../state/Atoms'
 
 const Authentication = (props) => {
-    let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
+    let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
     const [authenticating, setAuthenticating] = useRecoilState(authenticatingState);
     const [authenticated, setAuthenticated] = useRecoilState(authenticatedState);

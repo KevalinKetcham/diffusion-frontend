@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import './Auth.css';
 
 const Signup = () => {
-  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
+  let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   document.title = 'Signup | Diffusion'
 
