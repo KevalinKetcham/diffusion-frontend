@@ -21,6 +21,9 @@ const Authentication = (props) => {
             cookie: cookie
         }
 
+        console.log('Cookie ' + cookie);
+        console.log('Data ' + data);
+
         fetch(`${deployment}/auth/check`, {
             method: 'POST',
             headers: {
