@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import LoadingScreen from '../components/loading screen/LoadingScreen';
 
 import { authenticatingState, authenticatedState, userEmailState } from '../state/Atoms'
+// delete this comment
 
 const Authentication = (props) => {
     const [authenticating, setAuthenticating] = useRecoilState(authenticatingState);
