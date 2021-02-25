@@ -28,6 +28,7 @@ function App() {
   useEffect(() => {
     let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
     setDeployment(ORIGIN);
+    console.log(ORIGIN)
   }, []);
 
   return (
