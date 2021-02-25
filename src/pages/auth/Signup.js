@@ -7,11 +7,8 @@ import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
-import { useRecoilValue } from 'recoil';
-import { deploymentState } from '../../state/Atoms';
-
 const Signup = () => {
-  const deployment = useRecoilValue(deploymentState);
+  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   document.title = 'Signup | Diffusion'
 
@@ -32,7 +29,7 @@ const Signup = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          fetch(`${deployment}/auth/signup`, {
+          fetch(`${ORIGIN}/auth/signup`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

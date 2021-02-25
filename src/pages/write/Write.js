@@ -9,10 +9,10 @@ import Preupload from '../../components/upload/Preuplaod';
 import Postupload from '../../components/upload/Postupload';
 
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { userEmailState, publishedState, deploymentState } from '../../state/Atoms';
+import { userEmailState, publishedState } from '../../state/Atoms';
 
 const Write = () => {
-  const deployment = useRecoilValue(deploymentState);
+  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   const userEmail = useRecoilValue(userEmailState);
   const [published, setPublished] = useRecoilState(publishedState)
@@ -21,7 +21,7 @@ const Write = () => {
     if(userEmail !== null) {
       let data = { email: userEmail }
 
-      fetch(`${deployment}/upload/check`, {
+      fetch(`${ORIGIN}/upload/check`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

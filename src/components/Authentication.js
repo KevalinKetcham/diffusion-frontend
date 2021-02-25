@@ -1,16 +1,17 @@
 import React, {useEffect} from 'react';
-import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import { Redirect } from "react-router-dom";
 import LoadingScreen from '../components/loading screen/LoadingScreen';
 
-import { authenticatingState, authenticatedState, userEmailState, deploymentState } from '../state/Atoms'
+import { authenticatingState, authenticatedState, userEmailState } from '../state/Atoms'
 
 const Authentication = (props) => {
+    let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
+
     const [authenticating, setAuthenticating] = useRecoilState(authenticatingState);
     const [authenticated, setAuthenticated] = useRecoilState(authenticatedState);
     const setUserEmail = useSetRecoilState(userEmailState);
-    const deployment = useRecoilValue(deploymentState);
 
     const authenticate = () => {
         setAuthenticating(true)
@@ -21,11 +22,7 @@ const Authentication = (props) => {
             cookie: cookie
         }
 
-        console.log('Cookie ' + cookie);
-        console.log('Data ' + JSON.stringify(data));
-        console.log('Deployment ' + deployment);
-
-        fetch(`${deployment}/auth/check`, {
+        fetch(`${ORIGIN}/auth/check`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

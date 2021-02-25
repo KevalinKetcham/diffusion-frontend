@@ -3,7 +3,7 @@ import {
   Link
 } from "react-router-dom";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { userEmailState, alertState, uploadModalDisplayState, deploymentState } from '../../state/Atoms';
+import { userEmailState, alertState, uploadModalDisplayState } from '../../state/Atoms';
 
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
@@ -11,7 +11,7 @@ import * as yup from 'yup';
 import './Upload.css'
 
 const UploadModal = () => {
-  const deployment = useRecoilValue(deploymentState);
+  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   const [file, setFile] = useState(null);
   const [signedRequest, setSignedRequest] = useState(null);
@@ -69,7 +69,7 @@ const UploadModal = () => {
             email: userEmail,
             s3File: file.name
           }
-          fetch(`${deployment}/upload`, {
+          fetch(`${ORIGIN}/upload`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

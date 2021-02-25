@@ -7,11 +7,8 @@ import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
-import { useRecoilValue } from 'recoil';
-import { deploymentState } from '../../state/Atoms';
-
 const Signin = () => {
-  const deployment = useRecoilValue(deploymentState);
+  let ORIGIN = process.env.NODE_ENV === 'production' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   document.title = 'Signin | Diffusion'
 
@@ -31,7 +28,7 @@ const Signin = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          fetch(`${deployment}/auth/signin`, {
+          fetch(`${ORIGIN}/auth/signin`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

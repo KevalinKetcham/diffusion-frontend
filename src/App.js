@@ -18,19 +18,7 @@ import {
 
 import React, {useEffect} from 'react';
 
-import { useSetRecoilState } from 'recoil';
-import { deploymentState } from './state/Atoms'
-
-
 function App() {
-  const setDeployment = useSetRecoilState(deploymentState)
-
-  useEffect(() => {
-    let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
-    setDeployment(ORIGIN);
-    console.log(ORIGIN)
-  }, []);
-
   return (
   <>
   <Alert />
