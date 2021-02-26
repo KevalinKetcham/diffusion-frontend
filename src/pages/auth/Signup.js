@@ -7,7 +7,12 @@ import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
+import { useSetRecoilState } from 'recoil';
+import { alertState } from '../../state/Atoms';
+
 const Signup = () => {
+  const setAlert = useSetRecoilState(alertState);
+
   let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   document.title = 'Signup | Diffusion'
@@ -41,7 +46,7 @@ const Signup = () => {
             if(data.status === 200) {
               window.location = 'https://diffusionapp.com/signin';
             } else {
-              console.log('Response error!')
+              setAlert({ display: true, message: data.err });
             }
           })
         }}

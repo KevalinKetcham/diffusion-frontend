@@ -7,7 +7,12 @@ import * as yup from 'yup';
 // CSS
 import './Auth.css';
 
+import { useSetRecoilState } from 'recoil';
+import { alertState } from '../../state/Atoms';
+
 const Signin = () => {
+  const setAlert = useSetRecoilState(alertState);
+
   let ORIGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://diffusion-backend-development.up.railway.app';
 
   document.title = 'Signin | Diffusion'
@@ -37,8 +42,12 @@ const Signin = () => {
           })
           .then(response => response.json())
           .then(data => {
-            document.cookie = `session=${data.session}`
-            window.location.reload()
+            if(data.auth === true) {
+              document.cookie = `session=${data.session}`
+              window.location.reload()
+            } else {
+              setAlert({ display: true, message: data.err });
+            }
           })
         }}
       >
