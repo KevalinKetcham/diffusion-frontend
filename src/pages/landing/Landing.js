@@ -30,7 +30,7 @@ function Landing() {
         <div className="container1">
             <div>
               <h1>YouTube for books</h1>
-              <p>The best place to read and publish books. You simply upload a piece (however much you want to start with) of your book and we’ll handle distribution, monetization, and guide you along the way. As a reader you’ll get access to some of the best liturature for free.</p>
+              <p>The best place to read and publish books. You simply upload a piece and we’ll handle distribution, monetization (with ads), and guide you along the way. As a reader you’ll get access to up-and-coming work for free.</p>
               <Link to="/signup"><button className="shadow--orange hover unhover">Sign Up</button></Link>
             </div>
             <img className="educationIllustration" src={educationIllustration} alt="education illustration"></img>
@@ -38,7 +38,7 @@ function Landing() {
         <div className="container2">
           <div>
             <h2>Democratizing books for all</h2>
-            <p>The internet has democratized everything from education to entertainment. The friction involved with consuming and publishing books is absurd. These days everyone can be a creator. We’re bringing this fact to literature by putting ads in ebooks.</p>
+            <p>The internet has democratized everything from education to entertainment. The friction involved with consuming and publishing books is absurd. We're giving everyone a platform with aligned incentives.</p>
           </div>
         </div>
         <div className="container3">
@@ -46,17 +46,17 @@ function Landing() {
             <div>
               <img src={shareIllustration} alt="share illustration"></img>
               <h4>Distribution</h4>
-              <p>Simply post your book to Diffusion & we automatically distribute your book to readers on Diffusion.</p>
+              <p>Simply upload & we'll distribute your book to our readers.</p>
             </div>
             <div>
               <img src={monetizationIllustration} alt="monetization illustration"></img>
               <h4>Monetization</h4>
-              <p>You don’t have to create a payment portal or sell in some store. Ads are automatically embedded so you get paid as people enjoy your book.</p>
+              <p>You don’t have to create a payments portal or battle for shelf space. Ads are discreetly embedded so you get paid as people enjoy your book.</p>
             </div>
             <div>
               <img src={supportIllustration} alt="support illustration"></img>
-              <h4>Support</h4>
-              <p>Get help from a community of authors. You’ll be more motivated and produce better work.</p>
+              <h4>Support & Feedback</h4>
+              <p>Get help from a community of authors and use our analytics tools to better understand your readers.</p>
             </div>
           </div>
         </div>
