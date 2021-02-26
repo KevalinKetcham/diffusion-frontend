@@ -34,6 +34,8 @@ const Signup = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
+          console.log(values)
+
           fetch(`${ORIGIN}/auth/signup`, {
             method: 'POST',
             headers: {
