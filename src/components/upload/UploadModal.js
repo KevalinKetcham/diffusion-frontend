@@ -29,6 +29,8 @@ const UploadModal = () => {
     let fileName = selectedFile.name;
     let fileType = selectedFile.type;
 
+    console.log(fileName, fileType)
+
     fetch(`${ORIGIN}/upload/sreq`, {
       method: 'POST',
       headers: {
@@ -41,7 +43,9 @@ const UploadModal = () => {
     })
     .then(response => response.json())
     .then(res => {
+      console.log(res)
       setSignedRequest(res.signedRequest);
+      console.log(res.signedRequest) // delete this
     })
   }
 
