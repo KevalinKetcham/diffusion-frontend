@@ -4,9 +4,9 @@ p {
 }
 
 .container1 {
-    margin: 120px 0 0 0;
+    margin: 120px auto 0 auto;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
 }
 
 .container1 div {
@@ -78,7 +78,8 @@ p {
 }
 
 .features div {
-    margin: 0 2%;
+    max-width: 300px;
+    margin: 0 10px;
 }
 
 .features img {
@@ -88,6 +89,12 @@ p {
 .features h4 {
     font-size: 18px;
     font-weight: 500;
+}
+
+@media(max-width:1200px) {
+    .educationIllustration {
+        display: none;
+    }
 }
 
 @media(max-width:800px) {
