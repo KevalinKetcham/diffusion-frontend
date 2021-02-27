@@ -43,9 +43,7 @@ const UploadModal = () => {
     })
     .then(response => response.json())
     .then(res => {
-      console.log(res)
       setSignedRequest(res.signedRequest);
-      console.log(res.signedRequest) // delete this
     })
   }
 
