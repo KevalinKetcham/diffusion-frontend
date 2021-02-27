@@ -68,32 +68,39 @@ const UploadModal = () => {
             ...values,
             email: userEmail,
             s3File: file.name
-          }
+        }
+
+        const sendMetadata = () => {
           fetch(`${ORIGIN}/upload`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(uploadData)
-            })
-            .then(response => response.json())
-            .then(res => {
-                console.log(res);
-            })
-      
-          fetch(`${signedRequest}`, {
-            method: 'PUT',
-            body: file
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(uploadData)
           })
-          .then(response => response)
+          .then(response => response.json())
           .then(res => {
             if(res.status === 200) {
-              setAlert({ display: true, message: 'Success!' })
+              setAlert({ display: true, message: res.message })
               setTimeout(() => {
                 window.location.reload()
               }, 3000)
             } else {
-              setAlert({ display: true, message: 'Error uploading file!' })
+              setAlert({ display: true, message: res.err })
+            }
+          })
+        }
+
+        fetch(`${signedRequest}`, {
+          method: 'PUT',
+          body: file
+        })
+          .then(response => response)
+          .then(res => {
+            if(res.status === 200) {
+              sendMetadata();
+            } else {
+              setAlert({ display: true, message: 'Error uploading file! Server problem, email: hello@diffusionapp.com' })
             }
           })
         }
