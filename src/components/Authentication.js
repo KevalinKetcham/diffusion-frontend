@@ -31,7 +31,6 @@ const Authentication = (props) => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if(data.message === 'Check for email and password was successful!'){
                 document.cookie = `session=${data.session}`
                 setAuthenticating(false);

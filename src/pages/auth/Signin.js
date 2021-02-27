@@ -33,8 +33,6 @@ const Signin = () => {
             .required('Required')
         })}
         onSubmit={(values) => {
-          console.log(values)
-
           fetch(`${ORIGIN}/auth/signin`, {
             method: 'POST',
             headers: {
