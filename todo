@@ -8,6 +8,7 @@ Add google analytics
 
 
 
+
 Email when new user signs upload [manually?]
 Figure out and explain copyright policy
 Terms and conditions
@@ -16,3 +17,5 @@ Simplify backend using middleware
 
 Navbars
     Mobile responsiveness
+
+Use argon2 instead of bcrypt
